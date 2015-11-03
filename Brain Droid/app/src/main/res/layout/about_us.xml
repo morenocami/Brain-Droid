@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:id="@+id/Frag_AboutUs"
     android:weightSum="1"
-    android:background="#2dff20">
+    android:background="#e7c0ea">
 
     <ScrollView
         android:layout_width="wrap_content"

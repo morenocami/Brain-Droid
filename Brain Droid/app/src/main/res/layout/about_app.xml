@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    android:id="@+id/Frag_AboutApp">
+    android:id="@+id/Frag_AboutApp"
+    android:background="#3144ff">
 
     <TextView
         android:layout_width="fill_parent"

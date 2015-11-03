@@ -8,27 +8,31 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 /**
  * Created by Camilo on 11/2/2015.
  */
 public class Frag_AboutApp extends Fragment {
-    View view;
+
+
     TextView tv2;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.about_app, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
+        /*tv2.findViewById(R.id.AP);
+        tv2.setText(" Fahad Alqattan, Camilo Moreno, and Vanessa Plugues are the brains behind the Brain-Droid App." +
+                "\n\n All Students at Florida Atlantic University, coming together to form what many call a break through in APP Development.  " +
+                " Fahad Alqattan born and raised in Kuwait, a Senior in his double major in computer engineering/science." +
+                " To all the ladies in the class, HE IS SINGLE." +
+                "\n\n  Vanessa Plugues born and raised in Florida, a Junior is her double major in computer engineering/science." +
+                " Ms. Plugues is a mother of 1 and works as a part time tutor." +
+                "\n\n Camilo Moreno born and raised in Colombia, a Senior in his double major in computer engineer/science." +
+                " Part time drummer, part time tutor, and full time awesome."   );
 
-        tv2 = (TextView) view.findViewById(R.id.AP);
-
-        return view;
+        tv2.setTextColor(Color.BLUE);*/
+        return inflater.inflate(R.layout.about_app, container, false);
     }
 
-    public void changeText(int color){
-        tv2.setText(" The Brain-Droid is an educational mobile app and friendly user that is built in 2015" +
-                " by senior students from Florida Atlantic University. Brain-Droid developed to Increase " +
-                "math skills, Improve retention ability and productivity.\n"   );
-
-        tv2.setTextColor(Color.BLUE);
-    }
 }

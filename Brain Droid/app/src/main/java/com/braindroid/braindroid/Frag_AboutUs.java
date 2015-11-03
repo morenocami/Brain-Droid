@@ -14,19 +14,14 @@ import android.widget.TextView;
 
 
 public class Frag_AboutUs extends Fragment {
-    View view;
+
     TextView tv1;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.about_us, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
+       /* tv1.findViewById(R.id.AS);
 
-        tv1 = (TextView) view.findViewById(R.id.AS);
-
-        return view;
-    }
-
-    public void changeText(int color){
         tv1.setText(" Fahad Alqattan, Camilo Moreno, and Vanessa Plugues are the brains behind the Brain-Droid App." +
                 "\n\n All Students at Florida Atlantic University, coming together to form what many call a break through in APP Development.  " +
                 " Fahad Alqattan born and raised in Kuwait, a Senior in his double major in computer engineering/science." +
@@ -36,6 +31,10 @@ public class Frag_AboutUs extends Fragment {
                 "\n\n Camilo Moreno born and raised in Colombia, a Senior in his double major in computer engineer/science." +
                 " Part time drummer, part time tutor, and full time awesome."   );
 
-        tv1.setTextColor(Color.BLUE);
+        tv1.setTextColor(Color.BLUE);*/
+
+        return inflater.inflate(R.layout.about_us, container, false);
     }
+
+
 }

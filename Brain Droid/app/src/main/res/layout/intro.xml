@@ -20,23 +20,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Authors"
-        android:id="@+id/button3"
+        android:id="@+id/authors"
         android:layout_below="@+id/textView8"
         android:layout_alignLeft="@+id/textView8"
         android:layout_alignStart="@+id/textView8"
         android:layout_marginTop="53dp"
         android:nestedScrollingEnabled="false"
-        android:onClick="onAboutUsClick" />
+        android:onClick="changeFrag" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="App"
-            android:id="@+id/button4"
-            android:layout_alignTop="@+id/button3"
+            android:id="@+id/app"
+            android:layout_alignTop="@+id/authors"
             android:layout_alignRight="@+id/textView8"
             android:layout_alignEnd="@+id/textView8"
-            android:onClick="onAboutAppClick" />
+            android:onClick="changeFrag"
+            android:layout_alignBottom="@+id/authors" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -46,23 +47,18 @@
             android:textSize="35sp"
             android:layout_centerHorizontal="true" />
 
-        <fragment
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:name="com.braindroid.braindroid.Frag_AboutUs"
-            android:id="@+id/Frag_AboutUs"
-            android:layout_marginTop="73dp"
-            android:layout_alignTop="@+id/Frag_AboutApp"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="150dp"
+            android:id="@+id/lay">
 
-        <fragment
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:name="com.braindroid.braindroid.Frag_AboutApp"
-            android:id="@+id/Frag_AboutApp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" /></RelativeLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

@@ -1,10 +1,8 @@
 package com.braindroid.braindroid;
 
-import android.app.Activity;
+import android.app.Fragment;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +10,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
 import com.parse.Parse;
 
@@ -21,12 +18,11 @@ import com.parse.Parse;
  */
 public class Intro extends AppCompatActivity{
 
-    Frag_AboutApp f1 = new Frag_AboutApp();
+    android.support.v4.app.Fragment f;
     Frag_AboutUs f2 = new Frag_AboutUs();
     FragmentManager fm=getSupportFragmentManager();
-    FragmentTransaction t=fm.beginTransaction();
-    boolean F1Checked=false;
-    boolean F2Checked=false;
+    boolean Checked=false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,36 +42,20 @@ public class Intro extends AppCompatActivity{
 
     public void changeFrag(View v)
     {
+        FragmentTransaction t=fm.beginTransaction();
+
         switch (v.getId()) {
             case R.id.authors:
-                if (F1Checked) {
-                    t.replace(R.id.lay, f2);
-                    t.addToBackStack(null);
-                    t.commit();
-                }
-                else {
-                    f2.setArguments(getIntent().getExtras());
-                    t.add(R.id.lay, f2);
-                    t.commit();
-                    F1Checked=true;
-                }
+                f = new Frag_AboutUs();
+                t.replace(R.id.lay, f);
+                t.commitAllowingStateLoss();
                 break;
             case R.id.app:
-                if(F1Checked){
-                    t.replace(R.id.lay, f1);
-                    t.addToBackStack(null);
-                    t.commit();
-                }
-                else{
-                    f2.setArguments(getIntent().getExtras());
-                    t.add(R.id.lay, f1);
-                    t.commit();
-                    F1Checked=true;
-                }
+                f = new Frag_AboutApp();
+                t.replace(R.id.lay, f);
+                t.commitAllowingStateLoss();
             default:
         }
-
-
     }
 
     @Override

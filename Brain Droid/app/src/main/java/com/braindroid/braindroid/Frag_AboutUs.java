@@ -31,7 +31,7 @@ public class Frag_AboutUs extends Fragment {
                 "\n\n  Vanessa Plugues born and raised in Florida, a Junior is her double major in computer engineering/science." +
                 " Ms. Plugues is a mother of 1 and works as a part time tutor." +
                 "\n\n Camilo Moreno born and raised in Colombia, a Senior in his double major in computer engineer/science." +
-                " Part time drummer, part time tutor, and full time awesome."   );
+                " Part-time drummer, part-time tutor, and full-time awesome.");
 
         return view;
     }

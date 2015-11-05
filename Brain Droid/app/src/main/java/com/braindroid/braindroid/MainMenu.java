@@ -2,10 +2,12 @@ package com.braindroid.braindroid;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 /**
  * Created by Camilo on 11/2/2015.
@@ -30,17 +32,24 @@ public class MainMenu extends AppCompatActivity{
         return true;
     }
 
+
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_back:
-                final Intent intent = new Intent(this, LogIn.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+                final Intent back = new Intent(MainMenu.this, Register.class);
+                back.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(back);
                 return true;
 
             case R.id.action_forward:
+                final Intent GameOne = new Intent(MainMenu.this, gameone.class);
+                GameOne.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(GameOne);
                 return true;
+
 
             default:
                 // If we got here, the user's action was not recognized.

@@ -23,18 +23,22 @@
         <activity
             android:name=".LogIn"
             android:windowSoftInputMode="stateHidden">
-
         </activity>
 
         <activity
             android:name=".Register"
             android:noHistory="true"
             android:windowSoftInputMode="stateHidden">
-
         </activity>
 
-        <activity android:name=".MainMenu">
+        <activity
+            android:name=".MainMenu"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
 
+        <activity
+            android:name=".gameone"
+            android:windowSoftInputMode="stateHidden">
         </activity>
     </application>
 

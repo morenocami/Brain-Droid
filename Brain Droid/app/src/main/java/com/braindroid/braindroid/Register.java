@@ -70,12 +70,12 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_back:
-                final Intent back = new Intent(this, LogIn.class);
+                final Intent back = new Intent(Register.this, LogIn.class);
                 startActivity(back);
                 return true;
 
             case R.id.action_forward:
-                final Intent next = new Intent(this, MainMenu.class);
+                final Intent next = new Intent(Register.this, MainMenu.class);
                 startActivity(next);
                 return true;
 

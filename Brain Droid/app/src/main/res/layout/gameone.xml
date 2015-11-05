@@ -1,17 +1,39 @@
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:stretchColumns="0,2"
+    android:background="@drawable/g1wallpaper"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/gameOne">
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/gameOne_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"/>
-
-
-
-</LinearLayout>
+    android:layout_height="match_parent">
+    <TableRow android:layout_width="match_parent">
+        <TextView
+            android:id="@+id/Timer"
+            android:layout_column="0"
+            android:text="000" />
+        <ImageButton android:id="@+id/Smiley"
+            android:layout_column="1"
+            android:background="@drawable/pause"
+            android:layout_height="48px"/>
+        <TextView
+            android:id="@+id/Count"
+            android:layout_column="2"
+            android:text="000" />
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:layout_column="0"
+            android:layout_height="50px"
+            android:layout_span="3"
+            android:padding="10dip"/>
+    </TableRow>
+    <TableRow>
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/MineField"
+            android:layout_width="260px"
+            android:layout_height="260px"
+            android:gravity="bottom"
+            android:stretchColumns="*"
+            android:layout_span="3"
+            android:padding="5dip" >
+        </TableLayout>
+    </TableRow>
+</TableLayout>

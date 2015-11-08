@@ -10,13 +10,20 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+import java.util.List;
+
 /**
  * Created by Camilo on 11/2/2015.
  */
 
 public class LogIn extends AppCompatActivity{
-    EditText username;
-    EditText password;
+    private EditText username;
+    private EditText password;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,15 +37,37 @@ public class LogIn extends AppCompatActivity{
         setSupportActionBar(myToolbar);
     }
 
-
     public void login(View v){
         if(username.getText().toString().isEmpty())
             Toast.makeText(getApplicationContext(), "Enter your username.", Toast.LENGTH_SHORT).show();
         else if(password.getText().toString().isEmpty())
             Toast.makeText(getApplicationContext(), "Enter your password.", Toast.LENGTH_SHORT).show();
         else{
-            Intent enter = new Intent(LogIn.this, MainMenu.class);
-            startActivity(enter);
+            final ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("User");
+            query.findInBackground(new FindCallback<ParseObject>() {
+                public void done(List<ParseObject> users, ParseException e) {
+                    if (e == null) {
+                        boolean matches=false;
+                        for(int x=0;x<users.size();x++){
+                            if(users.get(x).getString("username").equalsIgnoreCase(username.getText().toString())){
+                                if(users.get(x).getString("password").equals(password.getText().toString())){
+                                    matches=true;
+                                    break;
+                                }
+                            }
+                        }
+                        if(matches){
+                            Intent enter = new Intent(LogIn.this, MainMenu.class);
+                            startActivity(enter);
+                        }
+                        else{Toast.makeText(getApplicationContext(), "Username/Password combo incorrect.", Toast.LENGTH_SHORT).show();}
+
+                    }
+                    else {
+
+                    }
+                }
+            });
         }
     }
 

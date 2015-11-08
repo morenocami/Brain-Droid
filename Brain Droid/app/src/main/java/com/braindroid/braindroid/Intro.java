@@ -1,6 +1,5 @@
 package com.braindroid.braindroid;
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -20,7 +19,7 @@ public class Intro extends AppCompatActivity{
 
     android.support.v4.app.Fragment f;
     Frag_AboutUs f2 = new Frag_AboutUs();
-    FragmentManager fm=getSupportFragmentManager();
+    FragmentManager fm = getSupportFragmentManager();
     boolean Checked=false;
 
 

@@ -68,8 +68,7 @@
                     android:layout_toRightOf="@+id/textView9"
                     android:layout_toEndOf="@+id/textView9"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    android:onClick="login" />
+                    android:gravity="center" />
 
                 <EditText
                     android:layout_width="wrap_content"

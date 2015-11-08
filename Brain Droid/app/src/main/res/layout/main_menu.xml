@@ -18,20 +18,12 @@
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Main Menu"
-            android:id="@+id/MainMenu"
-            android:gravity="center"
-            android:textColor="#d62e2e"
-            android:textSize="20dp" />
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Game One"
             android:id="@+id/G1"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:onClick="enterGame" />
     </LinearLayout>
 </RelativeLayout>

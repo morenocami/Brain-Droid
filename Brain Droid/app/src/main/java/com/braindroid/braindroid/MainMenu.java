@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 /**
  * Created by Camilo on 11/2/2015.
@@ -23,10 +24,20 @@ public class MainMenu extends AppCompatActivity{
         setSupportActionBar(myToolbar);
     }
 
+    public void enterGame(View v){
+        switch (v.getId()){
+            case R.id.G1:
+                final Intent g1 = new Intent(this,gameone.class);
+                startActivity(g1);
+                break;
+            default:
+        }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.action_bar, menu);
+        getMenuInflater().inflate(R.menu.user_action_bar, menu);
         return true;
     }
 
@@ -34,15 +45,21 @@ public class MainMenu extends AppCompatActivity{
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_back:
-                final Intent intent = new Intent(this, LogIn.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+                final Intent back = new Intent(this, LogIn.class);
+                back.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(back);
                 return true;
 
-            case R.id.action_forward:
-                final Intent GameOne = new Intent(MainMenu.this, gameone.class);
-                GameOne.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(GameOne);
+            case R.id.account:
+                final Intent account = new Intent(this, UserAccount.class);
+                account.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(account);
+                return true;
+
+            case R.id.progress:
+                final Intent progress = new Intent(this, UserProgress.class);
+                progress.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(progress);
                 return true;
 
             default:

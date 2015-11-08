@@ -13,7 +13,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.parse.FindCallback;
+import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+import java.util.List;
 
 /**
  * Created by Camilo on 11/2/2015.
@@ -21,7 +26,7 @@ import com.parse.ParseObject;
 
 public class Register extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private static final String[]paths = {"Matthews", "Robert", "Plugues"};
+    private static final String[] paths = {"Matthew", "Robert", "Plugues"};
     private EditText username, password, firstname, lastname;
     private String teacher;
 
@@ -48,15 +53,33 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
     }
 
     private void register(){
-        final ParseObject newUser = new ParseObject("User");
-        newUser.put("username", username.getText().toString());
-        newUser.put("password", password.getText().toString());
-        newUser.put("firstname", firstname.getText().toString());
-        newUser.put("lastname", lastname.getText().toString());
-        newUser.put("studentOf", teacher);
-        newUser.saveInBackground();
-        final Intent next = new Intent(this, MainMenu.class);
-        startActivity(next);
+        final ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("User");
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> users, ParseException e) {
+                if (e == null) {
+                    boolean match = false;
+                    for (ParseObject x : users) {
+                        if (x.getString("username").equalsIgnoreCase(username.getText().toString())) {
+                            Toast.makeText(getApplicationContext(), "Username is taken, try another.", Toast.LENGTH_SHORT).show();
+                            match = true;
+                        }
+                    }
+                    if (!match) {
+                        final ParseObject newUser = new ParseObject("User");
+                        newUser.put("username", username.getText().toString());
+                        newUser.put("password", password.getText().toString());
+                        newUser.put("firstname", firstname.getText().toString());
+                        newUser.put("lastname", lastname.getText().toString());
+                        newUser.put("studentOf", teacher);
+                        newUser.saveInBackground();
+                        final Intent next = new Intent(Register.this, MainMenu.class);
+                        startActivity(next);
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "There was an error. Please try again.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
@@ -103,8 +126,18 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
                     Toast.makeText(getApplicationContext(), "Fill in all fields", Toast.LENGTH_SHORT).show();
                 else if(password.getText().toString().isEmpty())
                     Toast.makeText(getApplicationContext(), "Fill in all fields", Toast.LENGTH_SHORT).show();
+                else if(username.getText().toString().matches("[a-zA-Z0-9]+")) {
+                    if(password.getText().toString().matches("[a-zA-Z0-9]+")) {
+                        register();
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(), "Password is not alphanumeric. No spaces!", Toast.LENGTH_SHORT).show();
+                        return true;
+                    }
+                }
                 else
-                    register();
+                    Toast.makeText(getApplicationContext(), "Username is not alphanumeric. No spaces!", Toast.LENGTH_SHORT).show();
+
                 return true;
             default:
                 // If we got here, the user's action was not recognized.

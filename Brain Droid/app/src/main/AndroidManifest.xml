@@ -22,17 +22,22 @@
 
         <activity
             android:name=".LogIn"
+            android:label="Brain Droid"
             android:windowSoftInputMode="stateHidden">
+
         </activity>
 
         <activity
             android:name=".Register"
+            android:label="Register"
             android:noHistory="true"
             android:windowSoftInputMode="stateHidden">
+
         </activity>
 
         <activity
             android:name=".MainMenu"
+            android:label="Main Menu"
             android:windowSoftInputMode="stateHidden">
         </activity>
 
@@ -40,6 +45,19 @@
             android:name=".gameone"
             android:windowSoftInputMode="stateHidden">
         </activity>
+
+        <activity
+            android:name=".UserAccount"
+            android:label="Account Settings"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
+
+        <activity
+            android:name=".UserProgress"
+            android:label="Progress Reports"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
+
     </application>
 
 </manifest>

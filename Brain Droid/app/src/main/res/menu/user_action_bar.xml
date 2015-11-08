@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_back"
+        android:icon="@drawable/action_back"
+        android:title="action_back"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/account"
+        android:title="My Account"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/progress"
+        android:title="Progress Reports"
+        app:showAsAction="never" />
+
+</menu>

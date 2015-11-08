@@ -45,7 +45,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Welcome to\nBrain Droid"
+                    android:text="Welcome"
                     android:id="@+id/textView2"
                     android:textColor="#ff0829"
                     android:textStyle="bold"

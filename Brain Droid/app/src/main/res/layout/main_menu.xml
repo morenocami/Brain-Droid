@@ -5,7 +5,7 @@
     android:layout_height="fill_parent"
     android:weightSum="10"
     android:orientation="vertical"
-    android:background="@drawable/g1wallpaper"
+    android:background="@drawable/greybackground"
     android:id="@+id/main_menu">
 
     <android.support.v7.widget.Toolbar
@@ -40,7 +40,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:text="@string/app_name"
-            android:textColor="@android:color/white"
+            android:textColor="#096582"
             android:textSize="@dimen/start"
             android:textStyle="bold"/>
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:stretchColumns="0,2"
-    android:background="@drawable/g1wallpaper"
+    android:background="@drawable/scoretile"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ProgressBar
@@ -23,7 +23,8 @@
             android:layout_height="50dp"
             android:textSize="42dp"
             android:textAlignment="center"
-            android:typeface="monospace" />
+            android:typeface="monospace"
+            android:textColor="#FFFFFF" />
         <ImageButton android:id="@+id/pause"
             android:layout_column="1"
             android:background="@drawable/pausebt"
@@ -35,7 +36,8 @@
             android:layout_height="50dp"
             android:textSize="42dp"
             android:textAlignment="center"
-            android:typeface="monospace" />
+            android:typeface="monospace"
+            android:textColor="#FFFFFF" />
     </TableRow>
     <TableRow>
         <TextView
@@ -47,7 +49,8 @@
             android:textAlignment="center"
             android:textSize="18dp"
             android:textStyle="bold"
-            android:typeface="monospace" />
+            android:typeface="monospace"
+            android:textColor="#FFFFFF" />
     </TableRow>
 
     <TableRow>

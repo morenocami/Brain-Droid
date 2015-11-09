@@ -10,14 +10,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
-        <activity
-            android:name=".Intro"
+
+        <activity android:name=".Scene1"
             android:label="@string/app_name">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+
+        <activity
+            android:name=".Intro"
+            android:label="Brain Droid"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
+
+        <activity
+            android:name=".Scene2"
+            android:label="Brain Droid"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
+
+        <activity
+            android:name=".Scene3"
+            android:label="Brain Droid"
+            android:windowSoftInputMode="stateHidden">
+
         </activity>
 
         <activity

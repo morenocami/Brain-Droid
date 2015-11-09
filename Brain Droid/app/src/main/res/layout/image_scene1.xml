@@ -8,5 +8,6 @@
         android:layout_height="419dp"
         android:id="@+id/imageView"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/braindroid" />
 </RelativeLayout>

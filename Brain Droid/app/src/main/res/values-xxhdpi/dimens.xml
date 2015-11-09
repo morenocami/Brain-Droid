@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Values xxdpi -->
+<resources>
+ <dimen name="frame_width">320dp</dimen>
+  	<dimen name="frame_height">370dp</dimen>
+  	  <dimen name="begin_play_button_margin">180dp</dimen>
+    <dimen name="begin_logo_image_margin">50dp</dimen>
+    <dimen name="wrong_dialog_img_padding">4dp</dimen>
+    <dimen name="wrong_dialog_text_size">20sp</dimen>
+    <dimen name="fragment_life_layout_height">50dp</dimen>
+    <dimen name="fragment_layout_margin5dp">5dp</dimen>
+    <dimen name="fragment_layout_margin10dp">10dp</dimen>
+    <dimen name="fragment_layout_margin15dp">15dp</dimen>
+    <dimen name="fragment_select_textsize">22sp</dimen>
+    <dimen name="dialog_height">400sp</dimen>
+    <dimen name="dialog_width">350dp</dimen>
+
+    <!-- Margins -->
+
+    <dimen name="layout_margin5dp">5dp</dimen>
+    <dimen name="layout_margin10dp">10dp</dimen>
+    <dimen name="layout_margin12dp">12dp</dimen>
+    <dimen name="layout_margin15dp">15dp</dimen>
+    <dimen name="layout_margin18dp">18dp</dimen>
+    <dimen name="layout_margin20dp">20dp</dimen>
+    <dimen name="layout_margin22dp">22dp</dimen>
+    <dimen name="layout_margin25dp">25dp</dimen>
+    <dimen name="layout_margin28dp">28dp</dimen>
+    <dimen name="layout_margin30dp">30dp</dimen>
+    <dimen name="layout_margin32dp">32dp</dimen>
+    <dimen name="layout_margin35dp">35dp</dimen>
+    <dimen name="layout_margin38dp">38dp</dimen>
+    <dimen name="layout_margin40dp">40dp</dimen>
+    <dimen name="layout_margin42dp">42dp</dimen>
+    <dimen name="layout_margin45dp">45dp</dimen>
+    <dimen name="layout_margin48dp">48dp</dimen>
+    <dimen name="layout_margin50dp">50dp</dimen>
+    <dimen name="layout_margin52dp">52dp</dimen>
+    <dimen name="layout_margin55dp">55dp</dimen>
+    <dimen name="layout_margin58dp">58dp</dimen>
+    <dimen name="layout_margin60dp">60dp</dimen>
+    <dimen name="layout_margin62dp">62dp</dimen>
+
+    <!-- text sizes -->
+    <dimen name="text_size14sp">17sp</dimen>
+    <dimen name="text_size15sp">18sp</dimen>
+    <dimen name="text_size16sp">19sp</dimen>
+    <dimen name="text_size17sp">20sp</dimen>
+    <dimen name="text_size18sp">21sp</dimen>
+    <dimen name="text_size19sp">22sp</dimen>
+    <dimen name="text_size20sp">23sp</dimen>
+    <dimen name="text_size21sp">24sp</dimen>
+    <dimen name="text_size22sp">25sp</dimen>
+    <dimen name="text_size23sp">26sp</dimen>
+    <dimen name="text_size24sp">27sp</dimen>
+    <dimen name="text_size25sp">28sp</dimen>
+    <dimen name="text_size26sp">29sp</dimen>
+    <dimen name="text_size27sp">30sp</dimen>
+    <dimen name="text_size28sp">31sp</dimen>
+    <dimen name="text_size29sp">32sp</dimen>
+    <dimen name="text_size30sp">33sp</dimen>
+    <dimen name="text_size31sp">34sp</dimen>
+    <dimen name="text_size32sp">35sp</dimen>
+
+    <!-- width and height -->
+    <dimen name="space100dp">100dp</dimen>
+    <dimen name="space120">120dp</dimen>
+    <dimen name="space150">150dp</dimen>
+    <dimen name="space180">180dp</dimen>
+    <dimen name="space200">200dp</dimen>
+    <dimen name="space220">220dp</dimen>
+    <dimen name="space250">250dp</dimen>
+    <dimen name="space280">280dp</dimen>
+    <dimen name="space300">300dp</dimen>
+    <dimen name="space320">320dp</dimen>
+    <dimen name="space350">350dp</dimen>
+    <dimen name="space370">370dp</dimen>
+    <dimen name="space400">400dp</dimen>
+  	
+  	
+  	
+  	
+  	</resources>

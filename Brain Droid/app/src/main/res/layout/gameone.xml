@@ -4,26 +4,40 @@
     android:background="@drawable/g1wallpaper"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TableRow android:layout_width="match_parent">
+    <TableRow android:layout_width="match_parent"
+        android:layout_height="50dp">
         <TextView
             android:id="@+id/Timer"
             android:layout_column="0"
-            android:text="000" />
-        <ImageButton android:id="@+id/Smiley"
+            android:text="0:00"
+            android:layout_height="50dp"
+            android:textSize="42dp"
+            android:textAlignment="center"
+            android:typeface="monospace" />
+        <ImageButton android:id="@+id/pause"
             android:layout_column="1"
-            android:background="@drawable/pause"
-            android:layout_height="48px"/>
+            android:background="@drawable/pausebt"
+            android:layout_height="50dp"/>
         <TextView
             android:id="@+id/Count"
             android:layout_column="2"
-            android:text="000" />
+            android:text="0:00"
+            android:layout_height="50dp"
+            android:textSize="42dp"
+            android:textAlignment="center"
+            android:typeface="monospace" />
     </TableRow>
     <TableRow>
         <TextView
             android:layout_column="0"
-            android:layout_height="50px"
+            android:layout_height="90px"
             android:layout_span="3"
-            android:padding="10dip"/>
+            android:padding="10dip"
+            android:text="Game 1"
+            android:textAlignment="center"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:typeface="monospace" />
     </TableRow>
     <TableRow>
         <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"

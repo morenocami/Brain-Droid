@@ -1,19 +1,21 @@
 package com.braindroid.braindroid;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 /**
  * Created by Camilo on 11/2/2015.
  */
 
 public class MainMenu extends AppCompatActivity{
-
+    private TextView logo;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,16 @@ public class MainMenu extends AppCompatActivity{
 
         final Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
+
+
+//====================================================================
+//Using external fonts
+//====================================================================
+        logo = (TextView) findViewById(R.id.logo);
+// set font style for timer and mine count to LCD style
+ //       Typeface lcdFont = Typeface.createFromAsset(getAssets(),"fonts/LCD2B.TTF");
+ //       logo.setTypeface(lcdFont);
+//====================================================================
     }
 
     public void enterGame(View v){
@@ -69,4 +81,6 @@ public class MainMenu extends AppCompatActivity{
 
         }
     }
+
+
 }

@@ -1,8 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="textColorPrimary">#424242</color>
-    <color name="windowBackground">#FFFFFF</color>
+
+    
+    <color name="background_color">#E1F2B2</color>  
+    <color name="text_color">#000</color>
+    
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="aqua">#00FFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="grey_traslucent">#cfc0c0c0</color>
+    <color name="blue_bg">#157e9e</color>
+    <color name="grey_bg">#3c3c3c</color>
+    <color name="cyan">#06fffc</color>
+    <color name="dark_gray_for_gradient">#C9C9CB</color>
+    <color name="light_gray_for_gradient">#F9F9F9</color>
+    <color name="light_orange_for_gradient">#FF8C00</color>
+    <color name="liketest">#5c5c5c</color>
+    <color name="gray_text_color">#5c5c5c</color>
+    <color name="share_dialog_background_outline_color">#096582</color>
+    <color name="share_dialog_background_color">#137C9C</color>
+    <color name="share_dialog_text_color">#065f7b</color>
+    <color name="sort_dialog_header_color">#127B9B</color>
+    <color name="msg_background_color">#0D3440</color>
+    <color name="msg_btn_color">#193F50</color>
+    <color name="nearby_eg_color">#BBBDBF</color>
+    <color name="near_by_list_name_color">#074052</color>
+    <color name="gray_normal">#C0C0C0</color>
+    <color name="tabMedium">#2B2B2B</color>
+    <color name="tabDark">#000000</color>
+    <color name="tabTransparent">#10ffffff</color>
+    <color name="search_button">#14485B</color>
+    <color name="white_opacity10">#1Affffff</color>
+    <color name="white_opacity15">#26ffffff</color>
+    <color name="white_opacity20">#33ffffff</color>
+    <color name="white_opacity25">#40ffffff</color>
+    <color name="white_opacity30">#4Dffffff</color>
+    <color name="white_opacity35">#59ffffff</color>
+    <color name="white_opacity40">#66ffffff</color>
+    <color name="white_opacity45">#73ffffff</color>
+    <color name="white_opacity50">#80ffffff</color>
+    <color name="white_opacity55">#8Cffffff</color>
+    <color name="white_opacity60">#99ffffff</color>
+    <color name="white_opacity65">#A6ffffff</color>
+    <color name="white_opacity70">#B3ffffff</color>
+    <color name="white_opacity75">#BFffffff</color>
+    <color name="white_opacity80">#CCffffff</color>
+    <color name="white_opacity85">#D9ffffff</color>
+    <color name="white_opacity90">#E6ffffff</color>
+    <color name="white_opacity95">#F2ffffff</color>
+
+    <!-- For calender activity -->
+
+    <color name="opaque_orange">#78FF9933</color>
+    <color name="orange">#FF9933</color>
+    <color name="green">#9ACD32</color>
+
+    <!-- For App color red and white activity -->
+    <color name="app_color">#ffffff</color>
+    <color name="button_color_top">#96A820</color>
+    <color name="button_color_bottom">#BDCF3F</color>
+    <color name="app_color_text">#000000</color>
+    <color name="app_color_background">#D8D9DB</color>
+    <color name="app_edittext_text_color"> #808080</color>
+    <color name="app_brown">#940014</color>
 </resources>

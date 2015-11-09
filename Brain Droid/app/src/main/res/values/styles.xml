@@ -21,5 +21,576 @@
 
     </style>
     -->
+    <!--
+           Base application theme, dependent on API level. This theme is replaced
+           by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+       -->
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- style for edittext -->
+    <style name="edittextlayout" parent="@style/layout_height_weight.horizontal_weight">
+        <item name="android:layout_margin">10dp</item>
+    </style>
+
+    <!-- Layout Styles -->
+    <style name="layout_fill">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+
+    <style name="layout_wrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="layout_height_wrap">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">fill_parent</item>
+    </style>
+
+    <style name="layout_width_wrap">
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="layout_height_weight">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="layout_height_weight_widthwrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="layout_width_weight">
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_width">0dp</item>
+    </style>
+
+    <style name="layout_width_weight_heightwrap">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+    </style>
+
+    <style name="layout_fill.horizontal_weightsum">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:weightSum">10</item>
+    </style>
+
+    <style name="layout_fill.vertical_weightsum">
+        <item name="android:orientation">vertical</item>
+        <item name="android:weightSum">10</item>
+    </style>
+
+    <style name="layout_width_weight.vertical_weightsum">
+        <item name="android:orientation">vertical</item>
+        <item name="android:weightSum">10</item>
+    </style>
+
+    <style name="layout_height_weight.vertical_weightsum">
+        <item name="android:orientation">vertical</item>
+        <item name="android:weightSum">10</item>
+    </style>
+
+    <style name="layout_height_weight.horizontal_weight">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:weightSum">10</item>
+    </style>
+
+    <style name="layout_wrap.horizontal">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <!-- EditText Styles -->
+    <style name="edittext" parent="@style/layout_fill">
+        <item name="android:paddingLeft">12dip</item>
+        <item name="android:paddingRight">12dip</item>
+        <item name="android:paddingTop">10dip</item>
+        <item name="android:paddingBottom">10dip</item>
+        <item name="android:imeOptions">actionNext</item>
+    </style>
+
+    <style name="edittext_fill" parent="@style/layout_fill">
+        <item name="android:paddingLeft">12dip</item>
+        <item name="android:paddingRight">12dip</item>
+        <item name="android:paddingTop">10dip</item>
+        <item name="android:paddingBottom">10dip</item>
+        <item name="android:imeOptions">actionNext</item>
+    </style>
+
+    <style name="edittext_wrap" parent="@style/layout_wrap"></style>
+
+    <style name="edittext_width_weight" parent="@style/layout_width_weight"></style>
+
+    <style name="edittext_height_weight" parent="@style/layout_height_weight"></style>
+
+    <style name="edittext_height_wrap_name" parent="@style/layout_height_wrap">
+        <item name="android:inputType">textNoSuggestions|textPersonName</item>
+        <item name="android:hint">Name</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="edittext_height_wrap_password" parent="@style/layout_height_wrap">
+        <item name="android:inputType">textPassword</item>
+        <item name="android:hint">Password</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="edittext_height_wrap_confirm_password" parent="@style/layout_height_wrap">
+        <item name="android:inputType">textPassword</item>
+        <item name="android:hint">Confirm Password</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="edittext_height_wrap_contact" parent="@style/layout_height_wrap">
+        <item name="android:inputType">phone</item>
+        <item name="android:hint">Contact no.</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="edittext_height_wrap_email" parent="@style/layout_height_wrap">
+        <item name="android:inputType">textEmailAddress</item>
+        <item name="android:hint">Email-Id</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="edittext_height_weight.email_login" parent="@style/layout_height_weight">
+        <item name="android:inputType">textEmailAddress</item>
+        <item name="android:hint">Email-Id</item>
+        <item name="android:layout_marginRight">@dimen/layout_margin50dp</item>
+        <item name="android:layout_marginLeft">@dimen/layout_margin50dp</item>
+        <item name="android:layout_marginBottom">@dimen/layout_margin10dp</item>
+        <item name="android:layout_marginTop">@dimen/layout_margin10dp</item>
+    </style>
+
+    <style name="edittext_height_weight.password_login" parent="@style/layout_height_weight">
+        <item name="android:inputType">textPassword</item>
+        <item name="android:hint">Password</item>
+        <item name="android:layout_marginRight">@dimen/layout_margin50dp</item>
+        <item name="android:layout_marginLeft">@dimen/layout_margin50dp</item>
+        <item name="android:layout_marginBottom">@dimen/layout_margin10dp</item>
+        <item name="android:layout_marginTop">@dimen/layout_margin10dp</item>
+    </style>
+
+    <style name="edittext_height_wrap_email_login" parent="@style/layout_height_wrap">
+        <item name="android:inputType">textEmailAddress</item>
+        <item name="android:hint">Email-Id</item>
+        <item name="android:layout_marginRight">@dimen/layout_margin50dp</item>
+        <item name="android:layout_marginLeft">@dimen/layout_margin50dp</item>
+        <item name="android:layout_marginBottom">@dimen/layout_margin10dp</item>
+        <item name="android:layout_marginTop">@dimen/layout_margin10dp</item>
+        <item name="android:imeOptions">actionNext</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="edittext_height_wrap_email_password" parent="@style/layout_height_wrap">
+        <item name="android:inputType">textPassword</item>
+        <item name="android:hint">Password</item>
+        <item name="android:layout_marginRight">@dimen/layout_margin50dp</item>
+        <item name="android:layout_marginLeft">@dimen/layout_margin50dp</item>
+        <item name="android:layout_marginBottom">@dimen/layout_margin10dp</item>
+        <item name="android:layout_marginTop">@dimen/layout_margin10dp</item>
+        <item name="android:imeOptions">actionNext</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- ImageButton Styles -->
+    <style name="imgbutton_height_weight_transy" parent="@style/layout_height_weight_widthwrap">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="imgbutton_fill_transy" parent="@style/layout_fill">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+    <!-- ImageView Styles -->
+
+    <style name="imageview_wrap" parent="@style/layout_wrap"></style>
+
+    <style name="imageview_wrap.center">
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <!-- Button Styles -->
+
+    <style name="button_transy">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white_opacity50</item>
+        <item name="android:paddingLeft">@dimen/layout_margin50dp</item>
+        <item name="android:paddingRight">@dimen/layout_margin50dp</item>
+        <item name="android:paddingTop">@dimen/layout_margin10dp</item>
+        <item name="android:paddingBottom">@dimen/layout_margin10dp</item>
+        <item name="android:background">@color/white_opacity20</item>
+
+
+    </style>
+    <style name="button_transy_pressed">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white_opacity80</item>
+        <item name="android:paddingLeft">@dimen/layout_margin50dp</item>
+        <item name="android:paddingRight">@dimen/layout_margin50dp</item>
+        <item name="android:paddingTop">@dimen/layout_margin10dp</item>
+        <item name="android:paddingBottom">@dimen/layout_margin10dp</item>
+        <item name="android:background">@color/white_opacity50</item>
+
+
+    </style>
+    <!-- textview styles -->
+    <style name="textview_fill" parent="@style/layout_fill"></style>
+
+    <style name="textview_wrap" parent="@style/layout_wrap"></style>
+
+    <style name="textview_width_weight" parent="@style/layout_width_weight"></style>
+
+    <style name="textview_height_weight" parent="@style/layout_height_weight"></style>
+
+    <!-- Orientation -->
+    <style name="orientation_horizontal">
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="orientation_vertical">
+        <item name="android:orientation">vertical</item>
+    </style>
+    <!-- imported Styles -->
+
+
+    <!-- textview style -->
+    <style name="textview">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="boldtextview">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+
+    <style name="textview_wrap_fill">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+
+    <style name="textview_italics">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#5A9805</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">30dip</item>
+    </style>
+
+    <style name="textview_wrap.bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="textview_wrap.black">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16dip</item>
+    </style>
+
+    <style name="textview_wrap.bold.black">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">16dip</item>
+    </style>
+
+    <style name="textview_wrap.bold.white">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20dip</item>
+    </style>
+
+    <style name="textview_weight">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="textview_weight.colorblack">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="textview_weight.colorblack.textsize">
+        <item name="android:textSize">18dip</item>
+    </style>
+
+    <style name="textview.gravity">
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <style name="textview.colorwhite">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="textview.colorcyan">
+        <item name="android:textColor">@color/cyan</item>
+    </style>
+
+    <style name="textview_wrap.colorwhite">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="textview_wrap.colorblack">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="textview_wrap.colorcyan">
+        <item name="android:textColor">@color/cyan</item>
+    </style>
+
+    <style name="textview.colorblack.gravityandroid">
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="textview_wrap.coloraqua">
+        <item name="android:textColor">@color/aqua</item>
+    </style>
+
+    <style name="textview_wrap.share_dialog_text_color">
+        <item name="android:textColor">@color/share_dialog_text_color</item>
+    </style>
+
+    <style name="textview.coloraqua">
+        <item name="android:textColor">@color/aqua</item>
+    </style>
+
+    <style name="textview.colorblack">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="textview_wrap.bold.colorliketest">
+        <item name="android:textColor">@color/liketest</item>
+    </style>
+
+    <style name="textview_wrap.colorliketest">
+        <item name="android:textColor">@color/liketest</item>
+    </style>
+
+    <style name="textview.coloraqua.textsize_twenty_two">
+        <item name="android:textSize">22dip</item>
+    </style>
+
+    <style name="textview.colorwhite.large_textsize">
+        <item name="android:textSize">22dip</item>
+    </style>
+
+    <style name="textview.colorwhite.textsize">
+        <item name="android:textSize">18dip</item>
+    </style>
+
+    <style name="textview_wrap.colorwhite.small_textsize">
+        <item name="android:textSize">14dip</item>
+    </style>
+
+    <style name="textview_wrap.colorwhite.very_small_textsize">
+        <item name="android:textSize">12dip</item>
+    </style>
+
+    <style name="textview.coloraqua.textsize">
+        <item name="android:textSize">18dip</item>
+    </style>
+
+    <style name="textview.colorblack.textsize">
+        <item name="android:textSize">18dip</item>
+    </style>
+
+    <style name="textview_wrap.coloraqua.textsize">
+        <item name="android:textSize">18dip</item>
+    </style>
+
+    <style name="textview.colorblack.optionpopup.textsize">
+        <item name="android:textSize">12dip</item>
+    </style>
+
+    <style name="textview.colorblack.optionpopup.textsize.bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="textview.colorblack.optionpopup">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- button style -->
+
+    <style name="button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="button.smallmarginleft">
+        <item name="android:layout_marginLeft">5dip</item>
+    </style>
+
+    <style name="button.marginleft">
+        <item name="android:layout_marginLeft">25dip</item>
+    </style>
+
+    <style name="button.margin">
+        <item name="android:layout_margin">5dip</item>
+    </style>
+
+    <style name="button.gravity">
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <style name="textview_list_header">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:textColor">#717C8E</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!--
+    <style name="layout.horizontal.popup">
+        <item name="android:background">@drawable/btn_popup</item>
+        <item name="android:paddingLeft">10dip</item>
+        <item name="android:paddingRight">2dip</item>
+        <item name="android:layout_marginBottom">2dip</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+
+
+
+
+
+    -->
+
+
+    <!-- scroolview style -->
+
+    <style name="scroolview">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:paddingLeft">7dip</item>
+        <item name="android:paddingRight">7dip</item>
+        <item name="android:paddingBottom">7dip</item>
+    </style>
+
+    <!-- Imageview style -->
+    <style name="imageview">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+    <!-- Style for view more footer loader button -->
+
+    <style name="loader_button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">33dip</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textSize">16dip</item>
+        <item name="android:padding">5dip</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="textview_wrap.colorblack.bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="mapview">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:apiKey">0pDFDyjH3YvTeGg7ghN6iJsNIP7y9j8dcTQWHkg</item>
+    </style>
+
+    <style name="layout_wrap.activities_tab_item_style">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:padding">5dip</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="button.negativemarginleft">
+        <item name="android:layout_marginLeft">-8dip</item>
+    </style>
+
+    <style name="textview_wrap.colorblack.bold.activity_tab_textview">
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+
+    <style name="ptr_headerContainer">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">0px</item>
+        <item name="android:gravity">bottom</item>
+    </style>
+
+    <style name="ptr_header">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">5dp</item>
+    </style>
+
+    <style name="ptr_spinner" parent="@android:style/Widget.ProgressBar.Small">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:indeterminate">true</item>
+        <item name="android:paddingLeft">25dp</item>
+        <item name="android:paddingRight">25dp</item>
+    </style>
+
+    <style name="ptr_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12dip</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="ptr_arrow">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <!-- <item name="android:src">@drawable/ic_pulltorefresh_arrow</item> -->
+        <item name="android:paddingLeft">25dp</item>
+        <item name="android:paddingRight">25dp</item>
+    </style>
+
+    <style name="Theme.CustomTranslucent" parent="android:style/Theme.Translucent">
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="MyTransparentTheme" parent="@android:style/Theme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+    </style>
+
+    <style name="CustomDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:background">@color/black</item>
+        <item name="android:textColor">@color/green</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowFrame">@null</item>
+    </style>
 
 </resources>

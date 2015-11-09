@@ -2,6 +2,7 @@ package com.braindroid.braindroid;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
@@ -22,6 +23,8 @@ public class gameone extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gameone);
 
+
+        startTimer();    // testtimer
 //====================================================================
 //Using external fonts
 //====================================================================
@@ -33,4 +36,44 @@ public class gameone extends AppCompatActivity {
  //       txtTimer.setTypeface(lcdFont);
 //====================================================================
     }
+
+//====================================================================
+//Using timer
+//====================================================================
+    private Handler timer = new Handler();
+    private int secondsPassed = 0;
+
+    public void startTimer()
+    {
+        if (secondsPassed == 0)
+        {
+            timer.removeCallbacks(updateTimeElasped);
+            // tell timer to run call back after 1 second
+            timer.postDelayed(updateTimeElasped, 1000);
+        }
+    }
+
+    public void stopTimer()
+    {
+        // disable call backs
+        timer.removeCallbacks(updateTimeElasped);
+    }
+
+    // timer call back when timer is ticked
+    private Runnable updateTimeElasped = new Runnable()
+    {
+        public void run()
+        {
+            long currentMilliseconds = System.currentTimeMillis();
+            ++secondsPassed;
+            txtTimer.setText(Integer.toString(secondsPassed));
+
+            // add notification
+            timer.postAtTime(this, currentMilliseconds);
+            // notify to call back after 1 seconds
+            // basically to remain in the timer loop
+            timer.postDelayed(updateTimeElasped, 1000);
+        }
+    };
+
 }

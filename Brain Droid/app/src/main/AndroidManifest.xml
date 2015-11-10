@@ -11,8 +11,9 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
 
-        <activity android:name=".Scene1"
-            android:label="@string/app_name">
+        <activity android:name=".Splash"
+            android:label="@string/app_name"
+            android:noHistory="true">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,19 +26,6 @@
             android:name=".Intro"
             android:label="Brain Droid"
             android:windowSoftInputMode="stateHidden">
-        </activity>
-
-        <activity
-            android:name=".Scene2"
-            android:label="Brain Droid"
-            android:windowSoftInputMode="stateHidden">
-        </activity>
-
-        <activity
-            android:name=".Scene3"
-            android:label="Brain Droid"
-            android:windowSoftInputMode="stateHidden">
-
         </activity>
 
         <activity

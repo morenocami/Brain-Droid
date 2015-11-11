@@ -14,6 +14,7 @@ public class Splash extends AppCompatActivity {
 
     private View fau, logo, team;
     private int animDuration;
+    private boolean skip=false;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -31,10 +32,15 @@ public class Splash extends AppCompatActivity {
                 android.R.integer.config_longAnimTime)*3;
     }
 
+    public void skipSplash(View v){
+        skip=true;
+    }
+
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
-        crossFade1();
+        if(hasFocus)
+            crossFade1();
     }
 
     private void crossFade1(){
@@ -43,14 +49,21 @@ public class Splash extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                fau.animate().alpha(0f).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        super.onAnimationEnd(animation);
-                        fau.setVisibility(View.GONE);
-                        crossFade2();
-                    }
-                });
+                if(skip){
+                    skip=false;
+                    fau.setVisibility(View.GONE);
+                    crossFade2();
+                }
+                else{
+                    fau.animate().alpha(0f).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            super.onAnimationEnd(animation);
+                            fau.setVisibility(View.GONE);
+                            crossFade2();
+                        }
+                    });
+                }
             }
         });
     }
@@ -61,14 +74,21 @@ public class Splash extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                logo.animate().alpha(0f).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        super.onAnimationEnd(animation);
-                        logo.setVisibility(View.GONE);
-                        crossFade3();
-                    }
-                });
+                if(skip){
+                    skip=false;
+                    logo.setVisibility(View.GONE);
+                    crossFade3();
+                }
+                else {
+                    logo.animate().alpha(0f).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            super.onAnimationEnd(animation);
+                            logo.setVisibility(View.GONE);
+                            crossFade3();
+                        }
+                    });
+                }
             }
         });
     }
@@ -80,14 +100,21 @@ public class Splash extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                team.animate().alpha(0f).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        super.onAnimationEnd(animation);
-                        team.setVisibility(View.GONE);
-                        startActivity(out);
-                    }
-                });
+                if(skip){
+                    skip=false;
+                    team.setVisibility(View.GONE);
+                    startActivity(out);
+                }
+                else{
+                    team.animate().alpha(0f).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            super.onAnimationEnd(animation);
+                            team.setVisibility(View.GONE);
+                            startActivity(out);
+                        }
+                    });
+                }
             }
         });
     }

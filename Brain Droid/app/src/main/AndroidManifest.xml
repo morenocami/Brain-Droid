@@ -51,7 +51,8 @@
 
         <activity
             android:name=".gameone"
-            android:windowSoftInputMode="stateHidden">
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="portrait">
         </activity>
 
         <activity

@@ -20,43 +20,80 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center">
+        android:layout_height="match_parent">
 
-        <ImageButton
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:background="@drawable/question_spotlight">
 
-            android:id="@+id/imageButton1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:src="@drawable/logo"
-            android:layout_above="@+id/logo"
-            android:layout_centerHorizontal="true"
-            android:layout_weight="0" />
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="Math"
+                android:id="@+id/G1"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:background="@drawable/math_icon"
+                android:onClick="enterGame" />
 
-        <TextView
-            android:id="@+id/logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="@string/app_name"
-            android:textColor="#096582"
-            android:textSize="@dimen/start"
-            android:textStyle="bold"
-            android:layout_weight="0" />
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="Memory"
+                android:id="@+id/G2"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:onClick="enterGame" />
 
-        <ImageButton
-            android:id="@+id/G1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/play_btn"
-            android:background="@android:color/transparent"
-            android:layout_below="@+id/logo"
-            android:layout_centerHorizontal="true"
-            android:onClick="enterGame"
-            android:layout_weight="0"
-            android:layout_marginBottom="5dp" />
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="Vocab"
+                android:id="@+id/G3"
+                android:layout_weight="1"
+                android:layout_margin="10dp"
+                android:onClick="enterGame" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:id="@+id/tempLay">
+
+            <ImageButton
+
+                android:id="@+id/preview"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@android:color/transparent"
+                android:src="@drawable/logo"
+                android:layout_above="@+id/logo"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/logo"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="@string/app_name"
+                android:textColor="#096582"
+                android:textSize="@dimen/start"
+                android:textStyle="bold"
+                android:layout_weight="2"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal" />
+
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

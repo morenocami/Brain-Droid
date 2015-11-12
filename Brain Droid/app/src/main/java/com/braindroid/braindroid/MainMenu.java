@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 /**
@@ -16,6 +18,8 @@ import android.widget.TextView;
 
 public class MainMenu extends AppCompatActivity{
     private TextView logo;
+    private ImageButton preview;
+    private Button G1, G2, G3;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,7 +29,10 @@ public class MainMenu extends AppCompatActivity{
         final Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-
+        preview = (ImageButton) findViewById(R.id.preview);
+        G1 = (Button) findViewById(R.id.G1);
+        G2 = (Button) findViewById(R.id.G2);
+        G3 = (Button) findViewById(R.id.G3);
 //====================================================================
 //Using external fonts
 //====================================================================
@@ -37,10 +44,48 @@ public class MainMenu extends AppCompatActivity{
     }
 
     public void enterGame(View v){
+        logo.setVisibility(View.GONE);
         switch (v.getId()){
             case R.id.G1:
-                final Intent g1 = new Intent(this,gameone.class);
-                startActivity(g1);
+                if(G1.getText().equals("Math")){
+                    G1.setText("START!");
+                    preview.setImageResource(R.drawable.mathgame_preview);
+                }
+                else{
+                    final Intent g1 = new Intent(this,MathGame.class);
+                    startActivity(g1);
+                    G1.setText("Math");
+                }
+                G2.setText("Memory");
+                G3.setText("Vocab");
+                break;
+            case R.id.G2:
+                if(G2.getText().equals("Memory")) {
+                    G2.setText("START!");
+                    preview.setImageResource(R.drawable.memorygame_preview);
+                }
+                else{
+                    final Intent g2 = new Intent(this,gameone.class);
+                    startActivity(g2);
+                    G2.setText("Memory");
+                }
+                G1.setText("Math");
+                G3.setText("Vocab");
+                break;
+            case R.id.G3:
+                if(G2.getText().equals("Vocab")) {
+                    G2.setText("START!");
+                    preview.setImageResource(R.drawable.memorygame_preview);
+                }
+                else{
+                    final Intent g3 = new Intent(this,GameTwo.class);
+                    startActivity(g3);
+                    G2.setText("Vocab");
+                }
+                //final Intent g3 = new Intent(this,VocabGame.class);
+                //startActivity(g3);
+                G1.setText("Math");
+                G2.setText("Memory");
                 break;
             default:
         }

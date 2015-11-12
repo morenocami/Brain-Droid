@@ -86,11 +86,6 @@ public class LogIn extends AppCompatActivity{
         }
     }
 
-    public void registration(View v){
-        Intent intent = new Intent(LogIn.this, Register.class);
-        startActivity(intent);
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

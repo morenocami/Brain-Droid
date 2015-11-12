@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mathgame">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mathLayout">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/question"
+            android:layout_weight="8">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="Score: 0"
+                android:id="@+id/score"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:background="@drawable/score_border"
+                android:textColor="#000000" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:background="#07080a"
+                android:id="@+id/questionLayout">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="8"
+                        android:id="@+id/operand1"
+                        android:gravity="center"
+                        android:layout_weight="4"
+                        android:textSize="30dp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:textColor="#ffffff" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="*"
+                        android:id="@+id/operator"
+                        android:gravity="center"
+                        android:layout_weight="4"
+                        android:textSize="30dp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:textColor="#ffffff" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="5"
+                        android:id="@+id/operand2"
+                        android:gravity="center"
+                        android:layout_weight="4"
+                        android:textSize="30dp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:textColor="#ffffff" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="="
+                        android:id="@+id/equalsSign"
+                        android:gravity="center"
+                        android:layout_weight="4"
+                        android:textSize="30dp"
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:textColor="#ffffff" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/answerText"
+                    android:layout_weight="3"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="50dp"
+                    android:textStyle="bold"
+                    android:textColor="#ffffff"
+                    android:text="\?" />
+
+                <ImageView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/mathImage"
+                    android:layout_weight="3"
+                    android:layout_gravity="center" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical" android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/math_game"
+            android:gravity="center"
+            android:id="@+id/answer"
+            android:layout_weight="3">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center">
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="7"
+                    android:id="@+id/button7"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/math_number_circle"
+                    android:typeface="monospace"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:elegantTextHeight="false"
+                    android:onClick="input" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="8"
+                    android:id="@+id/button8"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/math_number_circle"
+                    android:typeface="monospace"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:elegantTextHeight="false"
+                    android:onClick="input" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="9"
+                    android:id="@+id/button9"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/math_number_circle"
+                    android:typeface="monospace"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:elegantTextHeight="false"
+                    android:onClick="input" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center">
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="4"
+                    android:id="@+id/button4"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/math_number_circle"
+                    android:typeface="monospace"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:elegantTextHeight="false"
+                    android:onClick="input" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="5"
+                    android:id="@+id/button5"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/math_number_circle"
+                    android:typeface="monospace"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:elegantTextHeight="false"
+                    android:onClick="input" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="6"
+                    android:id="@+id/button6"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/math_number_circle"
+                    android:typeface="monospace"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:elegantTextHeight="false"
+                    android:onClick="input" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:text="1"
+                    android:id="@+id/button1"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/math_number_circle"
+                    android:typeface="monospace"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:elegantTextHeight="false"
+                    android:elevation="0dp"
+                    android:onClick="input" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="2"
+                    android:id="@+id/button2"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/math_number_circle"
+                    android:typeface="monospace"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:elegantTextHeight="false"
+                    android:elevation="0dp"
+                    android:onClick="input" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="3"
+                    android:id="@+id/button3"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/math_number_circle"
+                    android:typeface="monospace"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:elegantTextHeight="false"
+                    android:onClick="input" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center">
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="0"
+                    android:id="@+id/button0"
+                    android:gravity="center"
+                    android:layout_weight="2"
+                    android:background="@drawable/math_number_circle"
+                    android:typeface="monospace"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:elegantTextHeight="false"
+                    android:onClick="input" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="ENTER"
+                    android:id="@+id/math_enter"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/math_enter_rectangle"
+                    android:typeface="monospace"
+                    android:textStyle="bold"
+                    android:textSize="35dp"
+                    android:textColor="#ffffff"
+                    android:elegantTextHeight="false"
+                    android:onClick="submit" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

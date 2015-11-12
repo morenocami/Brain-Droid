@@ -73,14 +73,14 @@ public class MainMenu extends AppCompatActivity{
                 G3.setText("Vocab");
                 break;
             case R.id.G3:
-                if(G2.getText().equals("Vocab")) {
-                    G2.setText("START!");
+                if(G3.getText().equals("Vocab")) {
+                    G3.setText("START!");
                     preview.setImageResource(R.drawable.memorygame_preview);
                 }
                 else{
                     final Intent g3 = new Intent(this,GameTwo.class);
                     startActivity(g3);
-                    G2.setText("Vocab");
+                    G3.setText("Vocab");
                 }
                 //final Intent g3 = new Intent(this,VocabGame.class);
                 //startActivity(g3);

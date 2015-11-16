@@ -56,7 +56,7 @@
         </activity>
 
         <activity
-            android:name=".gameone"
+            android:name=".BeginActivity"
             android:label="Memory"
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="portrait">
@@ -78,6 +78,23 @@
             android:name=".UserProgress"
             android:label="Progress Reports"
             android:windowSoftInputMode="stateHidden">
+        </activity>
+        <activity
+            android:name=".ResultActivity"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/Theme.AppCompat" >
+        </activity>
+
+        <activity
+            android:name=".HelpActivity"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/Theme.AppCompat" >
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/Theme.AppCompat" >
         </activity>
 
     </application>

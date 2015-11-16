@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+ **
+ * @author Vinay Arora 
+ * @Dated 12 Sept 2014 Version 1.0
+ * @description data is file containing data related to the Application
+ * 
+ * 
+ *
+-->
+
+
+<!--
+ 	FILE RELATED INFORMATION
+
+	1.to add a new character u can simply add a line
+    		  
+    	  suppose we wanted to add X in it
+    		<item>X</item>
+    
+    2. to change a character 
+     	suppose we wanted to change "X" to "M" 
+     		we can do by simply replacing X with M
+    
+    
+     3. to delete a character 
+     		suppose we want to delete a character X
+     		you can simply remove the line 
+    			<item>X</item>
+-->
+
+<resources>
+
+   
+
+    <!-- numberofcolumns is the NUMBER OF COLUMNS to be shown on the screen -->
+
+    <string-array name="numberofcolums">
+        <item>3</item>
+        <item>3</item>
+        <item>3</item>
+        <item>3</item>
+        <item>3</item>
+        <item>3</item>
+        <item>3</item>
+        <item>3</item>
+        <item>3</item>
+        <item>3</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>4</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+    </string-array>
+
+    <!-- numberofcells is the NUMBER OF CELLS to be shown on the screen -->
+    <string-array name="numberofcells">
+        <item>9</item>
+        <item>9</item>
+        <item>9</item>
+        <item>9</item>
+        <item>9</item>
+        <item>12</item>
+        <item>12</item>
+        <item>12</item>
+        <item>12</item>
+        <item>12</item>
+        <item>16</item>
+        <item>16</item>
+        <item>16</item>
+        <item>16</item>
+        <item>16</item>
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+        <item>20</item>
+    </string-array>
+
+    <!-- success_array is the Message to be shown when user provides the right answer -->
+
+    <string-array name="success_array">
+        <item>fantastic</item>
+        <item>that\'s right</item>
+        <item>Good Work</item>
+        <item>Well Done</item>
+        <item>Keep it Up</item>
+        <item>Correct</item>
+        <item>Awesome</item>
+        <item>Great Job</item>
+        <item>Brilliant</item>
+        <item>Superb</item>
+    </string-array>
+
+    <!-- failmsg_array is the Message to be shown when user provides the wrong answer -->
+
+    <string-array name="failmsg_array">
+        <item>oh no !!</item>
+        <item>Aah!! Missed</item>
+        <item>Hard luck !!</item>
+        <item>Oops !!</item>
+        <item>wrong answer !</item>
+        <item>oh no !!</item>
+        <item>You missed !!</item>
+        <item>oh no !!</item>
+        <item>oh no !!</item>
+        <item>oh no !!</item>
+    </string-array>
+
+    <!-- tips is the Tips to be shown -->
+
+    <string-array name="tips">
+        <item>Transfer progress to your life. Where was your favourite mug in the morning?</item>
+        <item>Are you extracting ? Name the patterns as L,T,butterfly etc.</item>
+        <item>Stay relaxed. Pretend that your eyes are the camera lenses.</item>
+        <item>Play atleast 5 minutes daily for 21 days to enable a habit of memorizing patterns.</item>
+        <item>Group items. Extract patterns like L,T,C,X,Z.</item>
+        <item>Stay relaxed. Blinks as a camera at the start.</item>
+        <item>Split the space into smaller parts. Remember groups.</item>
+        <item>Transfer progress to your life. Where have you parked the car?</item>
+        <item>Play atleast 5 minutes a dayto develop a habit of memorizing patterns.</item>
+        <item>Pay attention to both positive and negative space to extract patterns.</item>
+        <item>Challenge your friends.Share the app with them and play together.</item>
+        <item>Single items are easier to forget.Start by filling out single items.</item>
+        <item>Look for symmetries. It can be easier to remember equal shapes.</item>
+        <item>look at the same point and use afterimage to reveal the items.</item>
+    </string-array>
+    
+     <!-- @name characacters contains list of characters which may come in a cell -->
+
+    <string-array name="characters">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>I</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>M</item>
+        <item>N</item>
+        <item>O</item>
+        <item>P</item>
+        <item>Q</item>
+        <item>R</item>
+        <item>S</item>
+        <item>T</item>
+        <item>U</item>
+        <item>V</item>
+        <item>W</item>
+        <item>X</item>
+        <item>Y</item>
+        <item>Z</item>
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>I</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>M</item>
+        <item>N</item>
+        <item>O</item>
+        <item>P</item>
+        <item>Q</item>
+        <item>R</item>
+        <item>S</item>
+        <item>T</item>
+        <item>U</item>
+        <item>V</item>
+        <item>W</item>
+        <item>X</item>
+        <item>Y</item>
+        <item>Z</item>
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>I</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>M</item>
+        <item>N</item>
+        <item>O</item>
+        <item>P</item>
+        <item>Q</item>
+        <item>R</item>
+        <item>S</item>
+        <item>T</item>
+        <item>U</item>
+        <item>V</item>
+        <item>W</item>
+        <item>X</item>
+        <item>Y</item>
+        <item>Z</item>
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>I</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>M</item>
+        <item>N</item>
+        <item>O</item>
+        <item>P</item>
+        <item>Q</item>
+        <item>R</item>
+        <item>S</item>
+        <item>T</item>
+        <item>U</item>
+        <item>V</item>
+        <item>W</item>
+        <item>X</item>
+        <item>Y</item>
+        <item>Z</item>
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>I</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>M</item>
+        <item>N</item>
+        <item>O</item>
+        <item>P</item>
+        <item>Q</item>
+        <item>R</item>
+        <item>S</item>
+        <item>T</item>
+        <item>U</item>
+        <item>V</item>
+        <item>W</item>
+        <item>X</item>
+        <item>Y</item>
+        <item>Z</item>
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+        <item>D</item>
+        <item>E</item>
+        <item>F</item>
+        <item>G</item>
+        <item>H</item>
+        <item>I</item>
+        <item>J</item>
+        <item>K</item>
+        <item>L</item>
+        <item>M</item>
+        <item>N</item>
+        <item>O</item>
+        <item>P</item>
+        <item>Q</item>
+        <item>R</item>
+        <item>S</item>
+        <item>T</item>
+        <item>U</item>
+        <item>V</item>
+        <item>W</item>
+        <item>X</item>
+        <item>Y</item>
+        <item>Z</item>
+    </string-array>
+	
+</resources>

@@ -1,16 +1,21 @@
 package com.braindroid.braindroid;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.parse.Parse;
 
 /**
  * Created by Camilo on 11/2/2015.
@@ -37,6 +42,7 @@ public class MainMenu extends AppCompatActivity{
 //Using external fonts
 //====================================================================
         logo = (TextView) findViewById(R.id.logo);
+        logo.setText("Welcome " + User.getFirstName());
 // set font style for timer and mine count to LCD style
  //       Typeface lcdFont = Typeface.createFromAsset(getAssets(),"fonts/LCD2B.TTF");
  //       logo.setTypeface(lcdFont);
@@ -92,6 +98,38 @@ public class MainMenu extends AppCompatActivity{
     }
 
     @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        //Handle the back button
+        if(keyCode == KeyEvent.KEYCODE_BACK && this==MainMenu.this) {
+            //Ask the user if they want to quit
+            new AlertDialog.Builder(this)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle("Confirm logout")
+                    .setMessage("Are you sure you want to log out?")
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            final Intent back = new Intent(MainMenu.this, LogIn.class);
+                            back.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(back);
+                        }
+
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
+
+            return true;
+        }
+        else if(event.equals(new KeyEvent(0,0))) {
+            return true;
+        }
+        else{
+                return super.onKeyDown(keyCode, event);
+        }
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.user_action_bar, menu);
@@ -102,9 +140,7 @@ public class MainMenu extends AppCompatActivity{
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_back:
-                final Intent back = new Intent(this, LogIn.class);
-                back.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(back);
+                onKeyDown (KeyEvent.KEYCODE_BACK, new KeyEvent(0,0));
                 return true;
 
             case R.id.account:

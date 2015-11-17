@@ -25,24 +25,27 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="4"
             android:gravity="center"
             android:background="@drawable/question_spotlight">
 
             <Button
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_height="wrap_content"
                 android:text="Math"
                 android:id="@+id/G1"
                 android:layout_weight="1"
                 android:layout_margin="10dp"
                 android:background="@drawable/math_icon"
-                android:onClick="enterGame" />
+                android:onClick="enterGame"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="#000000" />
 
             <Button
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_height="wrap_content"
                 android:text="Memory"
                 android:id="@+id/G2"
                 android:layout_weight="1"
@@ -51,7 +54,7 @@
 
             <Button
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_height="wrap_content"
                 android:text="Vocab"
                 android:id="@+id/G3"
                 android:layout_weight="1"
@@ -85,7 +88,6 @@
                 android:layout_height="fill_parent"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:text="@string/app_name"
                 android:textColor="#096582"
                 android:textSize="@dimen/start"
                 android:textStyle="bold"

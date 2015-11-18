@@ -161,7 +161,10 @@ public class GameTwo extends AppCompatActivity {
     public void populate_question() {
 
         randomInt = randomGenerator.nextInt(99);
+
+
         vocabWord.setText(vocabMap.get(randomInt));
+
         def1.setText(definitionMap.get(randomInt));
         def2.setText(definitionMap.get(randomGen2.nextInt(99)));
         def3.setText(definitionMap.get(randomGen2.nextInt(99)));

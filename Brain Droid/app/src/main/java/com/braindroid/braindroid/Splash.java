@@ -104,6 +104,7 @@ public class Splash extends AppCompatActivity {
                     skip=false;
                     team.setVisibility(View.GONE);
                     startActivity(out);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                 }
                 else{
                     team.animate().alpha(0f).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
@@ -112,6 +113,7 @@ public class Splash extends AppCompatActivity {
                             super.onAnimationEnd(animation);
                             team.setVisibility(View.GONE);
                             startActivity(out);
+                            overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                         }
                     });
                 }

@@ -39,7 +39,8 @@
                 android:layout_alignWithParentIfMissing="false"
                 android:layout_centerInParent="true"
                 android:background="#fac5c5"
-                android:padding="20dp">
+                android:padding="20dp"
+                android:id="@+id/linearLayout2">
 
                 <TextView
                     android:layout_width="fill_parent"
@@ -97,7 +98,35 @@
                     android:layout_marginLeft="50dp"
                     android:onClick="login" />
 
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Register"
+                    android:id="@+id/reg"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="65dp"
+                    android:layout_marginRight="50dp"
+                    android:onClick="register" />
+
             </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="About Us and App"
+                android:id="@+id/textView11"
+                android:layout_weight="1"
+                android:layout_alignBottom="@+id/linearLayout2"
+                android:layout_centerHorizontal="true"
+                android:clickable="true"
+                android:onClick="about"
+                android:singleLine="true"
+                android:textIsSelectable="true"
+                android:textSize="15sp"
+                android:textColorLink="#428cff"
+                android:textColor="#0910ff" />
+
         </RelativeLayout>
     </LinearLayout>
 </ScrollView>

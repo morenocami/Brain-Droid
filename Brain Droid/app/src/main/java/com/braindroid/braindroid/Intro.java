@@ -28,13 +28,6 @@ public class Intro extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intro);
 
-        try {
-            Parse.enableLocalDatastore(this);
-            Parse.initialize(this, "vuVEXjX02ghorFfG7HLFrZRuVBC43xhHFzvoPRUX", "QmPTK0yZCCUZhPQjW8CHaOtUw75MFZa8FDy4OyBO");
-        }
-        catch (Exception e){
-            // this catch should be changed to catch the exception Parse gives when already initialized!
-        }
         final Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
     }

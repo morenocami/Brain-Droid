@@ -94,7 +94,7 @@ public class Splash extends AppCompatActivity {
     }
 
     private void crossFade3(){
-        final Intent out = new Intent(this, Intro.class);
+        final Intent out = new Intent(this, LogIn.class);
         team.setVisibility(View.VISIBLE);
         team.animate().alpha(1f).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
             @Override

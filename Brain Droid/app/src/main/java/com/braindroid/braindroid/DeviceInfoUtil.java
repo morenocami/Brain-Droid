@@ -46,7 +46,7 @@ public class DeviceInfoUtil {
 
 	}
 
-	public static List<String> getAllEmailAccounts(Context context) {
+	/*public static List<String> getAllEmailAccounts(Context context) {
 		Pattern emailPattern = Patterns.EMAIL_ADDRESS; // API level 8+
 		Account[] accounts = AccountManager.get(context).getAccounts();
 		List<String> possibleEmail = new ArrayList<String>();
@@ -58,9 +58,9 @@ public class DeviceInfoUtil {
 		}
 		return possibleEmail;
 
-	}
+	}*/
 	
-	public static String getPrimaryEmailAccount(Context context) {
+/*	public static String getPrimaryEmailAccount(Context context) {
 		Pattern emailPattern = Patterns.EMAIL_ADDRESS; // API level 8+
 		Account[] accounts = AccountManager.get(context).getAccounts();
 		String email = new String();
@@ -72,7 +72,7 @@ public class DeviceInfoUtil {
 		}
 		return email;
 
-	}
+	}*/
 	
 
 	public static String getDeviceAndroidVersionName(Context context) {

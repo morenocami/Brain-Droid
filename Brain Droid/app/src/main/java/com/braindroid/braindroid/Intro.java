@@ -18,9 +18,7 @@ import com.parse.Parse;
 public class Intro extends AppCompatActivity{
 
     android.support.v4.app.Fragment f;
-    Frag_AboutUs f2 = new Frag_AboutUs();
     FragmentManager fm = getSupportFragmentManager();
-    boolean Checked=false;
 
 
     @Override

@@ -110,25 +110,14 @@ public class LogIn extends AppCompatActivity{
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.action_bar, menu);
-        menu.findItem(R.id.action_back).setVisible(true);
-        menu.findItem(R.id.action_forward).setVisible(true);
+        menu.findItem(R.id.action_back).setVisible(false);
+        menu.findItem(R.id.action_forward).setVisible(false);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_back:
-                final Intent back = new Intent(this, LogIn.class);
-                back.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(back);
-                return true;
-
-            case R.id.action_forward:
-                final Intent register = new Intent(this, Intro.class);
-                startActivity(register);
-                return true;
-
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.

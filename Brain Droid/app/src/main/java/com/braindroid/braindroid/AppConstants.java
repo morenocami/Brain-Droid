@@ -1,43 +1,6 @@
 package com.braindroid.braindroid;
 
-/**
- * @author Vinay Arora 
- * @Dated 12 Sept 2014 Version 1.0
- * @description App Constant is file containing Constants related to the Application
- * 
- * 
- */
-
 public interface AppConstants {
-
-	/**
-	 * AD_UNIT_ID is the AD MOB Unit ID you can change the ID as shown below
-	 * 
-	 * suppose previous id was 123 AD_UNIT_ID="123"
-	 * 
-	 * now you want to change it to xyz,you can do this by just replacing the
-	 * 123 by xyz as shown below
-	 * 
-	 * AD_UNIT_ID="xyz"
-	 * 
-	 */
-	final String AD_UNIT_ID = "ca-app-pub-1630272783404642/4993887612";
-	
-	
-	/**
-	 * INTERSTITIAL_AD_UNIT_ID is the AD MOB Unit ID for INTERSTITIAL AD you can change the ID as shown below
-	 * 
-	 * suppose previous id was 123 INTERSTITIAL_AD_UNIT_ID="123"
-	 * 
-	 * now you want to change it to xyz,you can do this by just replacing the
-	 * 123 by xyz as shown below
-	 * 
-	 * INTERSTITIAL_AD_UNIT_ID="xyz"
-	 * 
-	 */
-	
-	 final String INTERSTITIAL_AD_UNIT_ID="ca-app-pub-1630272783404642/6470620819";
-
 
 	/**
 	 * progress_duration is the number of milliseconds for which the characters
@@ -60,14 +23,7 @@ public interface AppConstants {
 
 	int num_of_lifes = 5;
 	
-	
-	/**
-	 * INTERSTITIAL_AD_UNIT_Frequency is the frequency as the number of levels after which ad appears
-	 */
-	
-	final int INTERSTITIAL_AD_UNIT_Frequency = 2;
 
-	
 	/**
 	 * progress_tick is the numbe of milliseconds seconds after which the time
 	 * remaining bar refreshes itself

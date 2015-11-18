@@ -1,13 +1,5 @@
 package com.braindroid.braindroid;
 
-/**
- * @author Vinay Arora 
- * @Dated 12 Sept 2014 Version 1.0
- * @description Game Constant is file containing functions related to the Application
- * 
- * 
- */
-
 import android.content.Context;
 
 import java.util.ArrayList;

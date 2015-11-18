@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!--
- **
- * @author Vinay Arora 
- * @Dated 12 Sept 2014 Version 1.0
- * @description data is file containing data related to the Application
- * 
- * 
- *
--->
-
 
 <!--
  	FILE RELATED INFORMATION
@@ -27,7 +17,8 @@
      3. to delete a character 
      		suppose we want to delete a character X
      		you can simply remove the line 
-    			<item>X</item>
+    			<item>X</item>
+
 -->
 
 <resources>

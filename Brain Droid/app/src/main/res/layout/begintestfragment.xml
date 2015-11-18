@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:weightSum="10"
     android:orientation="vertical"
-    android:background="@drawable/pattern"
+    android:background="@drawable/greybackground"
 
     >
 
@@ -15,48 +15,59 @@
 
         >
 
-        <ImageButton
+        <Button
             android:id="@+id/begin"
+            android:text="Start"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:src="@drawable/play_btn"
-            android:background="@android:color/transparent"
-            android:layout_above="@+id/result_help_button"
-            android:layout_centerHorizontal="true" />
+            android:background="@drawable/buttonshape"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:layout_alignBaseline="@+id/result_help_button"
+            android:layout_alignBottom="@+id/result_help_button"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="45dp" />
 
         <TextView
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textColor="@android:color/white"
+            android:text="@string/game2_name"
+            android:textColor="#096582"
             android:textSize="@dimen/start"
             android:textStyle="bold"
-            android:layout_above="@+id/begin"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="58dp" />
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
 
         <ImageButton
 
             android:id="@+id/imageButton1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/textView1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="@dimen/begin_logo_image_margin"
             android:background="@android:color/transparent"
             android:src="@drawable/logo"
-            />
+            android:layout_above="@+id/textView1"
+            android:layout_centerHorizontal="true" />
 
-        <ImageButton
+        <Button
             android:id="@+id/result_help_button"
+            android:text="Tips"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:src="@drawable/help_btn"
-            android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/imageButton1" />
+            android:background="@drawable/buttonshape"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
+            android:layout_marginTop="90dp"
+            android:layout_below="@+id/textView1"
+            android:layout_toEndOf="@+id/begin" />
 
     </RelativeLayout>
 

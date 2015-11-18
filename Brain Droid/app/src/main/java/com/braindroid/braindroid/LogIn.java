@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
+import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -31,6 +32,13 @@ public class LogIn extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.log_in);
 
+        try {
+            Parse.enableLocalDatastore(this);
+            Parse.initialize(this, "vuVEXjX02ghorFfG7HLFrZRuVBC43xhHFzvoPRUX", "QmPTK0yZCCUZhPQjW8CHaOtUw75MFZa8FDy4OyBO");
+        }
+        catch (Exception e){
+            // this catch should be changed to catch the exception Parse gives when already initialized!
+        }
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
 
@@ -38,6 +46,18 @@ public class LogIn extends AppCompatActivity{
         setSupportActionBar(myToolbar);
     }
 
+    public void register(View v)
+    {
+        Intent enter = new Intent(LogIn.this, Register.class);
+        startActivity(enter);
+    }
+
+    public void about(View v) {
+
+        Intent enter = new Intent(LogIn.this, Intro.class);
+        startActivity(enter);
+
+    }
     public void login(View v){
         if(username.getText().toString().isEmpty())
             Toast.makeText(getApplicationContext(), "Enter your username.", Toast.LENGTH_SHORT).show();
@@ -99,13 +119,13 @@ public class LogIn extends AppCompatActivity{
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_back:
-                final Intent back = new Intent(this, Intro.class);
+                final Intent back = new Intent(this, LogIn.class);
                 back.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(back);
                 return true;
 
             case R.id.action_forward:
-                final Intent register = new Intent(this, Register.class);
+                final Intent register = new Intent(this, Intro.class);
                 startActivity(register);
                 return true;
 

@@ -1,16 +1,19 @@
 package com.braindroid.braindroid;
 
+
+
 public interface AppConstants {
+
 
 	/**
 	 * progress_duration is the number of milliseconds for which the characters
 	 * in the cells are shown suppose previously it was setted to 50000 as shown
 	 * below
-	 * 
+	 *
 	 * progress_duration= 5*1000
-	 * 
+	 *
 	 * and now we wan to set it to 4000 it can be done as shown below
-	 * 
+	 *
 	 * progress_duration= 4*1000
 	 */
 
@@ -22,7 +25,7 @@ public interface AppConstants {
 	 */
 
 	int num_of_lifes = 5;
-	
+
 
 	/**
 	 * progress_tick is the numbe of milliseconds seconds after which the time
@@ -30,7 +33,7 @@ public interface AppConstants {
 	 */
 
 	final long progress_tick = 2;
-	
+
 	/**
 	 * Level key and Score key is used for internal purpose Please donot change
 	 * until required. Change may introduce bugs in the application

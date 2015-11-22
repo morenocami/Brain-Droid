@@ -2,6 +2,7 @@ package com.braindroid.braindroid;
 
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -14,7 +15,7 @@ import android.view.View.OnClickListener;
 
 public class BeginActivity extends Activity implements OnClickListener {
 
-	private Builder alert;
+	Builder alert;
 
 
 	@Override
@@ -22,7 +23,7 @@ public class BeginActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.begintestfragment);
 
-		alert = new Builder(this)
+		alert = new AlertDialog.Builder(this)
 				.setIcon(android.R.drawable.ic_dialog_alert)
 				.setTitle(R.string.quit)
 				.setMessage(R.string.really_quit)
@@ -32,7 +33,7 @@ public class BeginActivity extends Activity implements OnClickListener {
 
 							@Override
 							public void onClick(DialogInterface dialog,
-									int which) {
+												int which) {
 
 								Intent intent = new Intent(
 										getApplicationContext(),
@@ -51,52 +52,38 @@ public class BeginActivity extends Activity implements OnClickListener {
 	}
 
 	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		// TODO Auto-generated method stub
-
-		if (keyCode == KeyEvent.KEYCODE_BACK) {
-
-			alert.show();
-
-		}
-
-		return super.onKeyDown(keyCode, event);
-
-	}
-
-	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		case R.id.begin:
+			case R.id.begin:
 
-			new Handler().postDelayed(new Runnable() {
+				new Handler().postDelayed(new Runnable() {
 
-				@Override
-				public void run() {
-					// TODO Auto-generated method stub
-					startActivity(new Intent(BeginActivity.this,
-							MainActivity.class)
-							.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
-									| Intent.FLAG_ACTIVITY_CLEAR_TOP));
-					finish();
+					@Override
+					public void run() {
+						// TODO Auto-generated method stub
+						startActivity(new Intent(BeginActivity.this,
+								MainActivity.class)
+								.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
+										| Intent.FLAG_ACTIVITY_CLEAR_TOP));
+						finish();
 
-				}
-			}, 1000);
+					}
+				}, 1000);
 
-			break;
+				break;
 
-		case R.id.result_help_button:
+			case R.id.result_help_button:
 
-			startActivity(new Intent(BeginActivity.this, HelpActivity.class)
-					.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
-							| Intent.FLAG_ACTIVITY_CLEAR_TOP));
-			finish();
+				startActivity(new Intent(BeginActivity.this, HelpActivity.class)
+						.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
+								| Intent.FLAG_ACTIVITY_CLEAR_TOP));
+				finish();
 
-			break;
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 
 	}

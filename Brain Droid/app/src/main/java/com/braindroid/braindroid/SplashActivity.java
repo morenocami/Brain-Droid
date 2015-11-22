@@ -20,23 +20,23 @@ public class SplashActivity extends Activity {
 	         finish();
 	     	android.os.Process.killProcess(android.os.Process.myPid());
 	    }else{
-        
-	    	
+
+
 
         new Handler().postDelayed(new Runnable() {
-			
+
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				
-				startActivity(new Intent(SplashActivity.this,BeginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP));
+
+				startActivity(new Intent(SplashActivity.this,BeginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
 				finish();
-				
+
 			}
 		}, 3000);
-        
+
 	    }
-    
+
     }
-    
+
 }

@@ -1,6 +1,5 @@
 package com.braindroid.braindroid;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -9,12 +8,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageButton;
@@ -22,32 +19,33 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-public class LeveloneFragment extends Fragment implements OnItemClickListener,
-		OnClickListener {
+
+public class LeveloneFragment extends Fragment implements AdapterView.OnItemClickListener,
+		View.OnClickListener {
 
 	public View root;
 	public FragmentActivity context;
 	public GridView grid;
 	public GridAdapter adapter;
-	public List<String> list, temp_list;
+	public List<String> list;
 	private TextView selecttext, score_textview, level_textview,
 			right_dia_text, wrong_dia_text, tip_text;
 	CountDownTimer question_timer;
 	private List<String> list2, anslist, numofcolumns, numofcells;
-	AlertDialog.Builder alert;
 	Resources res;
 	int score, level;
 	boolean gridclickable;
 	private ProgressBar progressBar;
 	private ImageView life_imgview, wrong_dia_img, right_dia_img;
-	static int num_life,ad_counter;
-	LinearLayout wronganslayout, rightanslayout,mainlayout,fulladlayout;
+	static int num_life;
+	LinearLayout wronganslayout, rightanslayout,mainlayout;
 	private ImageButton rightdialogbutton, wrongdialogbutton,
 			wrongdialogtrybutton;
 	List<Integer> life_resource;
@@ -88,7 +86,6 @@ public class LeveloneFragment extends Fragment implements OnItemClickListener,
 		wrong_dia_img = (ImageView) context.findViewById(R.id.wrong_dia_img);
 		right_dia_img = (ImageView) context.findViewById(R.id.right_dia_img);
 		mainlayout=(LinearLayout) context.findViewById(R.id.main_layout);
-		fulladlayout=(LinearLayout)context.findViewById(R.id.fullscreenlayout);
 		numofcells = Arrays.asList(res.getStringArray(R.array.numberofcells));
 		tip_text = (TextView) context.findViewById(R.id.tip_textview);
 		gridclickable = false;
@@ -144,8 +141,7 @@ public class LeveloneFragment extends Fragment implements OnItemClickListener,
 
 				gridclickable = true;
 				grid.setAdapter(new GridAdapter(context, getTempList()));
-				selecttext.setText(context.getString(R.string.select,
-						list.get(generateRandom(anslist.size()))));
+				selecttext.setText(context.getString(R.string.select,list.get(generateRandom(anslist.size()))));
 				progressBar.setVisibility(View.GONE);
 				selecttext.setVisibility(View.VISIBLE);
 				fadeText(selecttext);
@@ -155,8 +151,7 @@ public class LeveloneFragment extends Fragment implements OnItemClickListener,
 	}
 
 	@Override
-	public void onItemClick(AdapterView<?> parent, View view, int position,
-							long id) {
+	public void onItemClick(AdapterView<?> parent, View view, int position,long id) {
 
 		checkanswer(position);
 
@@ -167,16 +162,12 @@ public class LeveloneFragment extends Fragment implements OnItemClickListener,
 
 		} else {
 
-			if (anslist.get(position).equalsIgnoreCase(
-					""
-							+ selecttext.getText().toString()
-							.charAt(selecttext.length() - 1))) {
+			if (anslist.get(position).equalsIgnoreCase("" + selecttext.getText().toString().charAt(selecttext.length() - 1)))
+			{
 
-				right_dia_text.setText(GameConstants
-						.generateRandomSuccessMessage(context).toString());
+				right_dia_text.setText(GameConstants.generateRandomSuccessMessage(context).toString());
 				rightanslayout.setVisibility(View.VISIBLE);
-				right_dia_img.setImageResource(GameConstants
-						.generateRandomHappyDrawableResource());
+				right_dia_img.setImageResource(GameConstants.generateRandomHappyDrawableResource());
 				tip_text.setText(GameConstants.generateRandomTip(getActivity()));
 				grid.setVisibility(View.GONE);
 				frame.setVisibility(View.GONE);
@@ -221,7 +212,6 @@ public class LeveloneFragment extends Fragment implements OnItemClickListener,
 			intialiseTimer();
 			question_timer.start();
 		}
-
 	}
 
 	protected List<String> getTempList() {
@@ -234,13 +224,11 @@ public class LeveloneFragment extends Fragment implements OnItemClickListener,
 			}
 		}
 		return list2;
-
 	}
 
 	public int generateRandom(int size) {
 
 		Random r = new Random();
-
 		return (r.nextInt(size));
 	}
 
@@ -269,7 +257,6 @@ public class LeveloneFragment extends Fragment implements OnItemClickListener,
 
 	private void fadeText(TextView text2) {
 
-
 		text2.startAnimation(animationFadeIn);
 
 	}
@@ -279,11 +266,8 @@ public class LeveloneFragment extends Fragment implements OnItemClickListener,
 		if (num_life > 0) {
 
 			life_imgview.setImageResource(life_resource.get(num_life - 1));
-			// showWrongDialog();
-			wrong_dia_text.setText(GameConstants
-					.generateRandomFailMessage(context));
-			wrong_dia_img.setImageResource(GameConstants
-					.generateRandomSadDrawableResource());
+			wrong_dia_text.setText(GameConstants.generateRandomFailMessage(context));
+			wrong_dia_img.setImageResource(GameConstants.generateRandomSadDrawableResource());
 			grid.setVisibility(View.GONE);
 			selecttext.setVisibility(View.INVISIBLE);
 			frame.setVisibility(View.GONE);
@@ -298,9 +282,7 @@ public class LeveloneFragment extends Fragment implements OnItemClickListener,
 			intent.putExtra(AppConstants.scorekey, score);
 			startActivity(intent);
 			getActivity().finish();
-
 		}
-
 	}
 
 	@Override
@@ -317,20 +299,16 @@ public class LeveloneFragment extends Fragment implements OnItemClickListener,
 				grid.setVisibility(View.VISIBLE);
 				frame.setVisibility(View.VISIBLE);
 				rightanslayout.setVisibility(View.GONE);
-
 				gridclickable = false;
-
 				level++;
 				updatescore(10);
 				question_timer.cancel();
 				if (level < numofcells.size())
 					setNextQuestion(getnumberofcells());
-				else {
-				}
-
+				else {	}
 				break;
-			case R.id.wrongdialogbutton:
 
+			case R.id.wrongdialogbutton:
 				gridclickable = false;
 				grid.setVisibility(View.VISIBLE);
 				wronganslayout.setVisibility(View.GONE);
@@ -341,8 +319,7 @@ public class LeveloneFragment extends Fragment implements OnItemClickListener,
 				question_timer.cancel();
 				if (level < numofcells.size())
 					setNextQuestion(getnumberofcells());
-				else {
-				}
+				else {	}
 
 				break;
 
@@ -352,14 +329,10 @@ public class LeveloneFragment extends Fragment implements OnItemClickListener,
 				wronganslayout.setVisibility(View.GONE);
 				frame.setVisibility(View.VISIBLE);
 				selecttext.setVisibility(View.VISIBLE);
-
 				break;
 
 			default:
 				break;
 		}
-
 	}
-
-
 }

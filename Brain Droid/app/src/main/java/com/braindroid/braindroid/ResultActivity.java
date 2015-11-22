@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -21,8 +20,6 @@ public class ResultActivity extends ActionBarActivity implements OnClickListener
 	private TextView level_text,tip,score_text;
 	private ImageView result_img;
 
-
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -30,7 +27,6 @@ public class ResultActivity extends ActionBarActivity implements OnClickListener
 		context = ResultActivity.this;
 		setContentView(R.layout.resultlayout);
 		intent = getIntent();
-		getSupportActionBar().hide();
 		level = intent.getExtras().getInt(AppConstants.levelkey);
 		score = intent.getExtras().getInt(AppConstants.scorekey);
 		menubutton = (ImageButton) findViewById(R.id.resultmenubutton);
@@ -41,36 +37,33 @@ public class ResultActivity extends ActionBarActivity implements OnClickListener
 		tip=(TextView)findViewById(R.id.resulttip_textview);
 		menubutton.setOnClickListener(this);
 		trygain.setOnClickListener(this);
-		
+
 		level_text.setText(""+context.getResources().getString(R.string.result_level, (((level - 1) / 5) + 1)));
 		score_text.setText(""+context.getResources().getString(R.string.result_score,score));
 		tip.setText(GameConstants.generateRandomTip(context));
 		result_img.setImageResource(GameConstants.generateRandomDrawableResource());
 	}
-	
-	
 
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 
 		switch (v.getId()) {
-		case R.id.resulttryagainbutton:
+			case R.id.resulttryagainbutton:
 
-			startMyActivity(this,MainActivity.class);
-			
-			break;
+				startMyActivity(this,MainActivity.class);
 
-		case R.id.resultmenubutton:
+				break;
 
-			startMyActivity(this,BeginActivity.class);
-			
-			break;
+			case R.id.resultmenubutton:
 
-		default:
-			break;
+				startMyActivity(this,BeginActivity.class);
+
+				break;
+
+			default:
+				break;
 		}
-
 	}
 
 	private <T> void startMyActivity(Activity activity, Class<T> class1) {
@@ -78,24 +71,4 @@ public class ResultActivity extends ActionBarActivity implements OnClickListener
 		startActivity(new Intent(activity,class1).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP));
 		finish();
 	}
-	
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		// TODO Auto-generated method stub
-		
-		
-		if(keyCode==KeyEvent.KEYCODE_BACK)
-		{
-			startMyActivity(this,BeginActivity.class);
-		}
-		
-		
-		return super.onKeyDown(keyCode, event);
-		
-		
-	}
-	
-	
-	
-
 }

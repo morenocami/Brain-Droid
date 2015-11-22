@@ -60,7 +60,8 @@ public class GameTwo extends AppCompatActivity {
         def3 = (RadioButton) findViewById(R.id.rb3);
         def4 = (RadioButton) findViewById(R.id.rb4);
         next = (Button) findViewById(R.id.button);
-
+ //       progressBar = (ProgressBar) getActivity().findViewById( R.id.time_progress);
+        progressBar.setMax((int) AppConstants.progress_duration);
         question_number= (TextView) findViewById(R.id.textView10);
 
         PopulateHash();

@@ -28,13 +28,6 @@ public class Intro extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.intro);
 
-        try {
-            Parse.enableLocalDatastore(this);
-            Parse.initialize(this, "vuVEXjX02ghorFfG7HLFrZRuVBC43xhHFzvoPRUX", "QmPTK0yZCCUZhPQjW8CHaOtUw75MFZa8FDy4OyBO");
-        }
-        catch (Exception e){
-            // this catch should be changed to catch the exception Parse gives when already initialized!
-        }
         final Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
     }
@@ -61,7 +54,8 @@ public class Intro extends AppCompatActivity{
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.action_bar, menu);
-        menu.findItem(R.id.action_back).setVisible(false);
+        menu.findItem(R.id.action_back).setVisible(true);
+        menu.findItem(R.id.action_forward).setVisible(false);
         return true;
     }
 
@@ -69,8 +63,8 @@ public class Intro extends AppCompatActivity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_forward:
-                Intent intent = new Intent(Intro.this, LogIn.class);
+            case R.id.action_back:
+                Intent intent = new Intent(Intro.this, LogIn.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
 

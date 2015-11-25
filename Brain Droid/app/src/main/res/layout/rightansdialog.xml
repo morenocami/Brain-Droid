@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:weightSum="10" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4.5"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/right_dia_img"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:padding="@dimen/wrong_dialog_img_padding"
+            android:src="@drawable/dialogwrongimage" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/right_dia_text"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:text="Great !! Right answer"
+            android:textColor="#fff"
+            android:textSize="@dimen/text_size20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:orientation="vertical" >
+
+        <ImageButton
+            android:id="@+id/rightdialogbutton"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:src="@drawable/continue_btn" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.5"
+        android:orientation="horizontal"
+        android:weightSum="10" >
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="2"
+            android:scaleType="centerInside"
+            android:src="@drawable/tip" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="8"
+            android:gravity="center|left"
+            android:paddingLeft="@dimen/layout_margin10dp"
+            android:text="here is a tip for you"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            android:textStyle="italic" 
+            android:id="@+id/tip_textview"
+            
+            />
+    </LinearLayout>
+
+</LinearLayout>

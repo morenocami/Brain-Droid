@@ -32,7 +32,7 @@
                 android:layout_height="fill_parent"
                 android:text="Score: 0"
                 android:id="@+id/score"
-                android:layout_weight="2"
+                android:layout_weight="3"
                 android:gravity="center"
                 android:textStyle="bold"
                 android:textSize="25dp"
@@ -45,12 +45,13 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="1"
                 android:background="#07080a"
-                android:id="@+id/questionLayout">
+                android:id="@+id/questionLayout"
+                android:layout_gravity="center">
 
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="fill_parent"
                     android:layout_weight="3"
                     android:layout_gravity="center">
 
@@ -105,7 +106,7 @@
 
                 <TextView
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="fill_parent"
                     android:id="@+id/answerText"
                     android:layout_weight="3"
                     android:layout_gravity="center"
@@ -113,14 +114,16 @@
                     android:textSize="50dp"
                     android:textStyle="bold"
                     android:textColor="#ffffff"
-                    android:text="\?" />
+                    android:text="\?"
+                    android:onClick="clear" />
 
                 <ImageView
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="fill_parent"
                     android:id="@+id/mathImage"
                     android:layout_weight="3"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:visibility="gone" />
             </LinearLayout>
         </LinearLayout>
 
@@ -129,7 +132,7 @@
             android:layout_height="fill_parent"
             android:background="@drawable/math_game"
             android:gravity="center"
-            android:id="@+id/answer"
+            android:id="@+id/answerLayout"
             android:layout_weight="3">
 
             <LinearLayout
@@ -313,7 +316,21 @@
                     android:text="0"
                     android:id="@+id/button0"
                     android:gravity="center"
-                    android:layout_weight="2"
+                    android:layout_weight="1"
+                    android:background="@drawable/math_number_circle"
+                    android:typeface="monospace"
+                    android:textStyle="bold"
+                    android:textSize="30dp"
+                    android:elegantTextHeight="false"
+                    android:onClick="input" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="+/-"
+                    android:id="@+id/negative"
+                    android:gravity="center"
+                    android:layout_weight="1"
                     android:background="@drawable/math_number_circle"
                     android:typeface="monospace"
                     android:textStyle="bold"
@@ -331,10 +348,11 @@
                     android:background="@drawable/math_enter_rectangle"
                     android:typeface="monospace"
                     android:textStyle="bold"
-                    android:textSize="35dp"
+                    android:textSize="30dp"
                     android:textColor="#ffffff"
                     android:elegantTextHeight="false"
-                    android:onClick="submit" />
+                    android:onClick="submit"
+                    android:allowUndo="false" />
 
             </LinearLayout>
         </LinearLayout>

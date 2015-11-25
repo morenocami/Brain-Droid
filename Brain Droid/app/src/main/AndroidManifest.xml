@@ -46,6 +46,7 @@
         <activity
             android:name=".MainMenu"
             android:label="Main Menu"
+            android:screenOrientation="sensorPortrait"
             android:windowSoftInputMode="stateHidden">
         </activity>
 
@@ -54,12 +55,32 @@
             android:label="Math"
             android:windowSoftInputMode="stateHidden">
         </activity>
+     <!--   <activity
+            android:name=".SplashActivity"
+            android:label="@string/game2_name"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+       </activity> -->
         <activity
-            android:name=".gameone"
+            android:name=".BeginActivity"
             android:label="Memory"
-            android:windowSoftInputMode="stateHidden"
-            android:screenOrientation="portrait">
+            android:windowSoftInputMode="stateHidden">
+            <activity
+                android:name=".SplashActivity"
+                android:label="@string/game2_name"
+                android:screenOrientation="sensorPortrait"
+                android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+            </activity>
         </activity>
 
         <activity
@@ -78,6 +99,23 @@
             android:name=".UserProgress"
             android:label="Progress Reports"
             android:windowSoftInputMode="stateHidden">
+        </activity>
+        <activity
+            android:name=".ResultActivity"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/Theme.AppCompat" >
+        </activity>
+
+        <activity
+            android:name=".HelpActivity"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/Theme.AppCompat" >
+        </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="sensorPortrait"
+            android:theme="@style/Theme.AppCompat" >
         </activity>
 
     </application>

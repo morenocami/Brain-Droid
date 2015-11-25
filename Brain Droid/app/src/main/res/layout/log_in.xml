@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="fill_parent"
-    android:layout_width="fill_parent"
-    android:fillViewport="true">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:orientation="vertical"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/r"
+    android:background="#c48080">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/r"
-        android:background="#c48080">
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:layout_weight="0" />
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/my_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            android:elevation="4dp"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+    <ScrollView
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent"
+        android:fillViewport="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_weight="0">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -114,19 +116,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="About Us and App"
+                android:text="About"
                 android:id="@+id/textView11"
                 android:layout_weight="1"
-                android:layout_alignBottom="@+id/linearLayout2"
-                android:layout_centerHorizontal="true"
                 android:clickable="true"
                 android:onClick="about"
                 android:singleLine="true"
                 android:textIsSelectable="true"
-                android:textSize="15sp"
+                android:textSize="20dp"
                 android:textColorLink="#428cff"
-                android:textColor="#0910ff" />
+                android:textColor="#0910ff"
+                android:layout_below="@+id/linearLayout2"
+                android:layout_centerHorizontal="true"
+                android:background="#dd5151"
+                android:height="10dp"
+                android:typeface="monospace"
+                android:textStyle="bold"
+                android:padding="5dp" />
 
         </RelativeLayout>
-    </LinearLayout>
-</ScrollView>
+
+    </ScrollView>
+</LinearLayout>

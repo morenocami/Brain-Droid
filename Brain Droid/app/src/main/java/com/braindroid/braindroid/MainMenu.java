@@ -15,8 +15,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.parse.Parse;
-
 /**
  * Created by Camilo on 11/2/2015.
  */
@@ -58,7 +56,8 @@ public class MainMenu extends AppCompatActivity{
                     preview.setImageResource(R.drawable.mathgame_preview);
                 }
                 else{
-                    final Intent g1 = new Intent(this,MathGame.class);
+                    final Intent g1 = new Intent(this,MathGame.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(g1);
                     G1.setText("Math");
                 }
@@ -71,7 +70,8 @@ public class MainMenu extends AppCompatActivity{
                     preview.setImageResource(R.drawable.memorygame_preview);
                 }
                 else{
-                    final Intent g2 = new Intent(this,gameone.class);
+                    final Intent g2 = new Intent(this,BeginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(g2);
                     G2.setText("Memory");
                 }
@@ -84,12 +84,11 @@ public class MainMenu extends AppCompatActivity{
                     preview.setImageResource(R.drawable.memorygame_preview);
                 }
                 else{
-                    final Intent g3 = new Intent(this,GameTwo.class);
+                    final Intent g3 = new Intent(this,GameTwo.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(g3);
                     G3.setText("Vocab");
                 }
-                //final Intent g3 = new Intent(this,VocabGame.class);
-                //startActivity(g3);
                 G1.setText("Math");
                 G2.setText("Memory");
                 break;
@@ -125,7 +124,7 @@ public class MainMenu extends AppCompatActivity{
             return true;
         }
         else{
-                return super.onKeyDown(keyCode, event);
+            return super.onKeyDown(keyCode, event);
         }
     }
 
@@ -145,13 +144,15 @@ public class MainMenu extends AppCompatActivity{
 
             case R.id.account:
                 final Intent account = new Intent(this, UserAccount.class);
-                account.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                account.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(account);
                 return true;
 
             case R.id.progress:
                 final Intent progress = new Intent(this, UserProgress.class);
-                progress.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                progress.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(progress);
                 return true;
 

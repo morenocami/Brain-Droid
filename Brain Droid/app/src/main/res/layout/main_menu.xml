@@ -93,7 +93,7 @@
                     android:layout_height="fill_parent"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
-                    android:text="@string/app_name"
+                    android:text="Welcome username"
                     android:textColor="#096582"
                     android:textSize="@dimen/start"
                     android:textStyle="bold"

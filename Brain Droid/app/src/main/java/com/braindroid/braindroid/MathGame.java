@@ -70,7 +70,7 @@ public class MathGame extends AppCompatActivity{
                 break;
             case 3:
                 ans = op1 / op2;
-                Toast.makeText(getApplicationContext(), "_Integer Division answer: " + ans, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Integer Division! (truncates)", Toast.LENGTH_SHORT).show();
                 operator.setText("/");
                 break;
             default:

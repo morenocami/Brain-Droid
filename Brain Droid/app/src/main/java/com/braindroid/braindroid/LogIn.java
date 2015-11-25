@@ -26,6 +26,7 @@ import java.util.List;
 public class LogIn extends AppCompatActivity{
     private EditText username;
     private EditText password;
+    static ParseObject user;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,44 +66,45 @@ public class LogIn extends AppCompatActivity{
             Toast.makeText(getApplicationContext(), "Enter your password.", Toast.LENGTH_SHORT).show();
         else{
             final Button button = (Button)findViewById(R.id.login);
-            final EditText user = (EditText)findViewById(R.id.username);
-            final EditText pass = (EditText)findViewById(R.id.password);
-            button.setEnabled(false);
-            button.setText("LOADING...");
-            final ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("User");
-            query.findInBackground(new FindCallback<ParseObject>() {
-                public void done(List<ParseObject> users, ParseException e) {
-                    if (e == null) {
-                        if(user.getText().toString().matches("[a-zA-Z0-9]+")) {
+            if(!username.getText().toString().matches("[a-zA-Z0-9]+")) {
+                Toast.makeText(getApplicationContext(), "Username is not alphanumeric. No spaces!", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                button.setEnabled(false);
+                button.setText("LOADING...");
+                final ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("User");
+
+                query.findInBackground(new FindCallback<ParseObject>() {
+                    public void done(List<ParseObject> users, ParseException e) {
+                        if (e == null) {
                             boolean matches = false;
                             for (int x = 0; x < users.size(); x++) {
                                 if (users.get(x).getString("username").equalsIgnoreCase(username.getText().toString())) {
                                     if (users.get(x).getString("password").equals(password.getText().toString())) {
                                         matches = true;
+                                        user = users.get(x);
+                                        User.userFound(user);
                                         break;
                                     }
                                 }
                             }
-                            if(matches){
+                            if (matches) {
                                 Intent enter = new Intent(LogIn.this, MainMenu.class);
                                 startActivity(enter);
                             }
-                            else{
+                            else {
                                 Toast.makeText(getApplicationContext(), "Username/Password combo incorrect.", Toast.LENGTH_SHORT).show();
                             }
                         }
-                        else{
-                            Toast.makeText(getApplicationContext(), "Username is not alphanumeric. No spaces!", Toast.LENGTH_SHORT).show();
+                        else {
+                            Toast.makeText(getApplicationContext(), "There was an error. Please try again.", Toast.LENGTH_SHORT).show();
                         }
+                        button.setEnabled(true);
+                        button.setText("Login");
+                        password.setText("");
                     }
-                    else {
-                        Toast.makeText(getApplicationContext(), "There was an error. Please try again.", Toast.LENGTH_SHORT).show();
-                    }
-                    button.setEnabled(true);
-                    button.setText("Login");
-                    pass.setText("");
-                }
-            });
+                });
+            }
         }
     }
 
@@ -111,24 +113,13 @@ public class LogIn extends AppCompatActivity{
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.action_bar, menu);
         menu.findItem(R.id.action_back).setVisible(false);
-        menu.findItem(R.id.action_forward).setVisible(true);
+        menu.findItem(R.id.action_forward).setVisible(false);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_back:
-                final Intent back = new Intent(this, LogIn.class);
-                back.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(back);
-                return true;
-
-            case R.id.action_forward:
-                final Intent register = new Intent(this, Intro.class);
-                startActivity(register);
-                return true;
-
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.

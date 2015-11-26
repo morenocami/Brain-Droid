@@ -73,14 +73,14 @@ public class MainMenu extends AppCompatActivity{
                             | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(g2);
                     G2.setText("Memory");
-                }
+               }
                 G1.setText("Math");
                 G3.setText("Vocab");
                 break;
             case R.id.G3:
                 if(G3.getText().equals("Vocab")) {
                     G3.setText("START!");
-                    preview.setImageResource(R.drawable.memorygame_preview);
+                    preview.setImageResource(R.drawable.vocabpreview);
                 }
                 else{
                     final Intent g3 = new Intent(this,GameTwo.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK

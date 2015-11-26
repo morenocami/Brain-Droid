@@ -22,30 +22,6 @@ public class GameOneBeginActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.gameonebeginactivity);
 
-		alert = new AlertDialog.Builder(this)
-				.setIcon(android.R.drawable.ic_dialog_alert)
-				.setTitle(R.string.quit)
-				.setMessage(R.string.really_quit)
-				.setNegativeButton(R.string.no, null)
-				.setPositiveButton(R.string.yes,
-						new DialogInterface.OnClickListener() {
-
-							@Override
-							public void onClick(DialogInterface dialog,
-												int which) {
-
-								Intent intent = new Intent(
-										getApplicationContext(),
-										SplashActivity.class);
-								intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-								intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-								intent.putExtra("EXIT", true);
-								startActivity(intent);
-								// ProfileActivity1.this.finish();
-								Log.e("CHECK", "GOING TO LOGIN");
-								finish();
-							}
-						});
 		findViewById(R.id.begin).setOnClickListener(this);
 		findViewById(R.id.result_help_button).setOnClickListener(this);
 	}

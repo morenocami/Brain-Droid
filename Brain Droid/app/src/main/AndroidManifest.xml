@@ -55,17 +55,7 @@
             android:label="Math"
             android:windowSoftInputMode="stateHidden">
         </activity>
-     <!--   <activity
-            android:name=".SplashActivity"
-            android:label="@string/game2_name"
-            android:screenOrientation="sensorPortrait"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-       </activity> -->
         <activity
             android:name=".GameOneBeginActivity"
             android:label="Memory"

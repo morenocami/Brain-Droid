@@ -2,7 +2,6 @@ package com.braindroid.braindroid;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -70,7 +69,7 @@ public class MainMenu extends AppCompatActivity{
                     preview.setImageResource(R.drawable.memorygame_preview);
                 }
                 else{
-                    final Intent g2 = new Intent(this,BeginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    final Intent g2 = new Intent(this,MemoryGameBeginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
                             | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(g2);
                     G2.setText("Memory");
@@ -139,7 +138,7 @@ public class MainMenu extends AppCompatActivity{
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_back:
-                onKeyDown (KeyEvent.KEYCODE_BACK, new KeyEvent(0,0));
+                onKeyDown(KeyEvent.KEYCODE_BACK, new KeyEvent(0, 0));
                 return true;
 
             case R.id.account:

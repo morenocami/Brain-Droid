@@ -13,8 +13,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -61,7 +59,7 @@ public class GameTwo extends AppCompatActivity {
         def4 = (RadioButton) findViewById(R.id.rb4);
         next = (Button) findViewById(R.id.button);
         progressBar = (ProgressBar) findViewById(R.id.time_progress);
-        progressBar.setMax((int) AppConstants.progress_duration);
+        progressBar.setMax((int) MemoryGameAppConstants.progress_duration);
         question_number= (TextView) findViewById(R.id.textView10);
 
         PopulateHash();

@@ -67,7 +67,7 @@
             </intent-filter>
        </activity> -->
         <activity
-            android:name=".BeginActivity"
+            android:name=".MemoryGameBeginActivity"
             android:label="Memory"
             android:windowSoftInputMode="stateHidden">
             <activity
@@ -101,19 +101,19 @@
             android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
-            android:name=".ResultActivity"
+            android:name=".MemoryGameResultActivity"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/Theme.AppCompat" >
         </activity>
 
         <activity
-            android:name=".HelpActivity"
+            android:name=".MemoryGameHelpActivity"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/Theme.AppCompat" >
         </activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".MemoryGameMainActivity"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/Theme.AppCompat" >
         </activity>

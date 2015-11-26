@@ -459,7 +459,7 @@
     </style>
 
     <!--
-    <style name="layout.horizontal.popup">
+    <style name="memorygamelayout.horizontal.popup">
         <item name="android:background">@drawable/btn_popup</item>
         <item name="android:paddingLeft">10dip</item>
         <item name="android:paddingRight">2dip</item>

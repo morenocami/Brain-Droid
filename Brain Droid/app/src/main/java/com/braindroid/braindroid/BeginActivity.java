@@ -1,29 +1,23 @@
 package com.braindroid.braindroid;
 
-
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 
 public class BeginActivity extends Activity implements OnClickListener {
 
-	Builder alert;
-
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.begintestfragment);
+		setContentView(R.layout.beginactivity);
 
-		alert = new AlertDialog.Builder(this)
+		new AlertDialog.Builder(this)
 				.setIcon(android.R.drawable.ic_dialog_alert)
 				.setTitle(R.string.quit)
 				.setMessage(R.string.really_quit)
@@ -42,7 +36,6 @@ public class BeginActivity extends Activity implements OnClickListener {
 								intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 								intent.putExtra("EXIT", true);
 								startActivity(intent);
-								// ProfileActivity1.this.finish();
 								Log.e("CHECK", "GOING TO LOGIN");
 								finish();
 							}

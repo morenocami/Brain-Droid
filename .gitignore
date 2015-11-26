@@ -1,0 +1,11 @@
+*.xml
+*.html
+Brain Droid/app/src/main/res/layout/beginactivity.xml
+Brain Droid/app/src/main/res/layout/mainactivity.xml
+Brain Droid/app/src/main/res/layout/resultactivity.xml
+Brain Droid/app/src/main/res/layout/resultactivity.xml
+*.java
+*.xml
+Brain Droid/app/src/main/java/com/braindroid/braindroid/BeginActivity.java
+*.java
+*.xml

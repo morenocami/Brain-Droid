@@ -17,7 +17,7 @@ public class MainActivity extends ActionBarActivity  {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.fragment2);
+		setContentView(R.layout.mainactivity);
 		fragment = getSupportFragmentManager();
 		fragment.beginTransaction()
 				.replace(R.id.container, new LeveloneFragment()).commit();

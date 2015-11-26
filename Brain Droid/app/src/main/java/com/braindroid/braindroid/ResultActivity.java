@@ -25,7 +25,7 @@ public class ResultActivity extends ActionBarActivity implements OnClickListener
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		context = ResultActivity.this;
-		setContentView(R.layout.resultlayout);
+		setContentView(R.layout.resultactivity);
 		intent = getIntent();
 		level = intent.getExtras().getInt(AppConstants.levelkey);
 		score = intent.getExtras().getInt(AppConstants.scorekey);

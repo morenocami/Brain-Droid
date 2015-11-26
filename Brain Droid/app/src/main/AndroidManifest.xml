@@ -46,6 +46,7 @@
         <activity
             android:name=".MainMenu"
             android:label="Main Menu"
+            android:screenOrientation="sensorPortrait"
             android:windowSoftInputMode="stateHidden">
         </activity>
 
@@ -68,8 +69,7 @@
         <activity
             android:name=".BeginActivity"
             android:label="Memory"
-            android:windowSoftInputMode="stateHidden"
-            >
+            android:windowSoftInputMode="stateHidden">
             <activity
                 android:name=".SplashActivity"
                 android:label="@string/game2_name"

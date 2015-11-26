@@ -18,84 +18,92 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
     <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:weightSum="10"
         android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:gravity="center"
-            android:background="@drawable/question_spotlight">
-
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:text="Math"
-                android:id="@+id/G1"
-                android:layout_weight="1"
-                android:layout_margin="10dp"
-                android:background="@drawable/math_icon"
-                android:onClick="enterGame" />
-
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:text="Memory"
-                android:id="@+id/G2"
-                android:layout_weight="1"
-                android:layout_margin="10dp"
-                android:onClick="enterGame" />
-
-            <Button
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:text="Vocab"
-                android:id="@+id/G3"
-                android:layout_weight="1"
-                android:layout_margin="10dp"
-                android:onClick="enterGame" />
-        </LinearLayout>
+        android:background="@drawable/greybackground"
+        android:id="@+id/main_menu">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:id="@+id/tempLay">
+            android:layout_height="match_parent">
 
-            <ImageButton
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:gravity="center"
+                android:background="@drawable/question_spotlight">
 
-                android:id="@+id/preview"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:background="@android:color/transparent"
-                android:src="@drawable/logo"
-                android:layout_above="@+id/logo"
-                android:layout_centerHorizontal="true"
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="Math"
+                    android:id="@+id/G1"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/math_icon"
+                    android:onClick="enterGame" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="Memory"
+                    android:id="@+id/G2"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:onClick="enterGame" />
+
+                <Button
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:text="Vocab"
+                    android:id="@+id/G3"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:onClick="enterGame" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
                 android:layout_weight="1"
-                android:layout_gravity="center" />
+                android:id="@+id/tempLay">
 
-            <TextView
-                android:id="@+id/logo"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:text="@string/app_name"
-                android:textColor="#096582"
-                android:textSize="@dimen/start"
-                android:textStyle="bold"
-                android:layout_weight="2"
-                android:layout_gravity="center"
-                android:gravity="center_horizontal" />
+                <ImageButton
 
+                    android:id="@+id/preview"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/logo"
+                    android:layout_above="@+id/logo"
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight="1"
+                    android:layout_gravity="center" />
+
+                <TextView
+                    android:id="@+id/logo"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="Welcome username"
+                    android:textColor="#096582"
+                    android:textSize="@dimen/start"
+                    android:textStyle="bold"
+                    android:layout_weight="2"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal" />
+
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
 </LinearLayout>
 
 

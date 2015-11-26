@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class GridAdapter extends BaseAdapter {
+public class GameOneGridAdapter extends BaseAdapter {
 
 	Context context;
 	List<String> list;
@@ -18,11 +18,11 @@ public class GridAdapter extends BaseAdapter {
 	private TextView tex;
 	private Resources res;
 
-	public GridAdapter() {
+	public GameOneGridAdapter() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public GridAdapter(Context context, List<String> list) {
+	public GameOneGridAdapter(Context context, List<String> list) {
 		super();
 		this.context = context;
 		this.list = list;
@@ -51,18 +51,10 @@ public class GridAdapter extends BaseAdapter {
 		// TODO Auto-generated method stub
 		
 		
-			 inflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			convertView=inflater.inflate(R.layout.list_item, null);
+			 inflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE); // listing items in a grid view
+			convertView=inflater.inflate(R.layout.gameonegridadapter, null);
 			tex=(TextView)convertView.findViewById(R.id.textView1);
 			tex.setText(list.get(position));
-//		res=context.getResources();	
-//		int width=(int) res.getDimension(R.dimen.frame_width);
-//		int height=(int) res.getDimension(R.dimen.frame_height);
-//		
-//				width=width/list.size();
-//				height=height/list.size();
-//		convertView.setLayoutParams(new ViewGroup.LayoutParams(width, height));
-		
 		return convertView;
 	}
 	

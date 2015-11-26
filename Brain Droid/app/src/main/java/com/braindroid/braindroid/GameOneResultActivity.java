@@ -11,7 +11,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ResultActivity extends ActionBarActivity implements OnClickListener {
+public class GameOneResultActivity extends ActionBarActivity implements OnClickListener {
 
 	Context context;
 	Intent intent;
@@ -24,11 +24,11 @@ public class ResultActivity extends ActionBarActivity implements OnClickListener
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		context = ResultActivity.this;
-		setContentView(R.layout.resultlayout);
+		context = GameOneResultActivity.this;
+		setContentView(R.layout.gameoneresultactivity);
 		intent = getIntent();
-		level = intent.getExtras().getInt(AppConstants.levelkey);
-		score = intent.getExtras().getInt(AppConstants.scorekey);
+		level = intent.getExtras().getInt(GameOneAppConstants.levelkey);
+		score = intent.getExtras().getInt(GameOneAppConstants.scorekey);
 		menubutton = (ImageButton) findViewById(R.id.resultmenubutton);
 		trygain = (ImageButton) findViewById(R.id.resulttryagainbutton);
 		level_text = (TextView) findViewById(R.id.result_level_text);
@@ -40,8 +40,8 @@ public class ResultActivity extends ActionBarActivity implements OnClickListener
 
 		level_text.setText(""+context.getResources().getString(R.string.result_level, (((level - 1) / 5) + 1)));
 		score_text.setText(""+context.getResources().getString(R.string.result_score,score));
-		tip.setText(GameConstants.generateRandomTip(context));
-		result_img.setImageResource(GameConstants.generateRandomDrawableResource());
+		tip.setText(GameOneGameConstants.generateRandomTip(context));
+		result_img.setImageResource(GameOneGameConstants.generateRandomDrawableResource());
 	}
 
 	@Override
@@ -51,13 +51,13 @@ public class ResultActivity extends ActionBarActivity implements OnClickListener
 		switch (v.getId()) {
 			case R.id.resulttryagainbutton:
 
-				startMyActivity(this,MainActivity.class);
+				startMyActivity(this,GameOneMainActivity.class);
 
 				break;
 
 			case R.id.resultmenubutton:
 
-				startMyActivity(this,BeginActivity.class);
+				startMyActivity(this,GameOneBeginActivity.class);
 
 				break;
 

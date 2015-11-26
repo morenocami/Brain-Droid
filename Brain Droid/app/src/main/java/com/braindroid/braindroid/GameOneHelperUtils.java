@@ -6,12 +6,12 @@ import java.util.List;
 import android.content.Context;
 import android.content.res.Resources;
 
-public class HelperUtils {
+public class GameOneHelperUtils {
 
 	Context context;
 	Resources res;
 
-	public HelperUtils(Context context) {
+	public GameOneHelperUtils(Context context) {
 		super();
 		this.context = context;
 		res=context.getResources();

@@ -9,11 +9,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-public class BeginActivity extends Activity implements OnClickListener {
+public class GameOneBeginActivity extends Activity implements OnClickListener {
 
 	Builder alert;
 
@@ -21,7 +20,7 @@ public class BeginActivity extends Activity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.begintestfragment);
+		setContentView(R.layout.gameonebeginactivity);
 
 		alert = new AlertDialog.Builder(this)
 				.setIcon(android.R.drawable.ic_dialog_alert)
@@ -62,8 +61,8 @@ public class BeginActivity extends Activity implements OnClickListener {
 					@Override
 					public void run() {
 						// TODO Auto-generated method stub
-						startActivity(new Intent(BeginActivity.this,
-								MainActivity.class)
+						startActivity(new Intent(GameOneBeginActivity.this,
+								GameOneMainActivity.class)
 								.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
 										| Intent.FLAG_ACTIVITY_CLEAR_TOP));
 						finish();
@@ -75,7 +74,7 @@ public class BeginActivity extends Activity implements OnClickListener {
 
 			case R.id.result_help_button:
 
-				startActivity(new Intent(BeginActivity.this, HelpActivity.class)
+				startActivity(new Intent(GameOneBeginActivity.this, GameOneHelpActivity.class)
 						.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
 								| Intent.FLAG_ACTIVITY_CLEAR_TOP));
 				finish();

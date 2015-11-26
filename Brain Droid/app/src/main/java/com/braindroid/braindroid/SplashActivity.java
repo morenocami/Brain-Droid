@@ -29,7 +29,7 @@ public class SplashActivity extends Activity {
 			public void run() {
 				// TODO Auto-generated method stub
 
-				startActivity(new Intent(SplashActivity.this,BeginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
+				startActivity(new Intent(SplashActivity.this,GameOneBeginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
 				finish();
 
 			}

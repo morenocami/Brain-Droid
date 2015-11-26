@@ -5,8 +5,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:weightSum="10"
-    android:orientation="vertical" 
-     android:background="@drawable/pattern"
+    android:orientation="vertical"
+    android:background="@drawable/splaashbackground"
     
     >
 

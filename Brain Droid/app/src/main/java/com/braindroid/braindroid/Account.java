@@ -10,12 +10,12 @@ import android.view.MenuItem;
 /**
  * Created by Camilo on 11/8/2015.
  */
-public class UserAccount extends AppCompatActivity{
+public class Account extends AppCompatActivity{
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_account);
+        setContentView(R.layout.account);
 
         final Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);

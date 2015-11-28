@@ -108,6 +108,7 @@ public class MainMenu extends AppCompatActivity{
 
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            User.logout();
                             final Intent back = new Intent(MainMenu.this, LogIn.class);
                             back.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(back);
@@ -142,14 +143,14 @@ public class MainMenu extends AppCompatActivity{
                 return true;
 
             case R.id.account:
-                final Intent account = new Intent(this, UserAccount.class);
+                final Intent account = new Intent(this, Account.class);
                 account.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
                         | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(account);
                 return true;
 
             case R.id.progress:
-                final Intent progress = new Intent(this, UserProgress.class);
+                final Intent progress = new Intent(this, ProgressReports.class);
                 progress.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
                         | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(progress);

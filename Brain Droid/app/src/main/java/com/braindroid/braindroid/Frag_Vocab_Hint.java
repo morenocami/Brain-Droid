@@ -20,7 +20,6 @@ public class Frag_Vocab_Hint extends Fragment {
     {
         view= inflater.inflate(R.layout.about_us, container,false);
 
-
         return view;
     }
 

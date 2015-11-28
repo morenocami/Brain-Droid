@@ -38,10 +38,11 @@ public class GameOneResultActivity extends ActionBarActivity implements OnClickL
 		menubutton.setOnClickListener(this);
 		trygain.setOnClickListener(this);
 
-		level_text.setText(""+context.getResources().getString(R.string.result_level, (((level - 1) / 5) + 1)));
+		level_text.setText("" + context.getResources().getString(R.string.result_level, (((level - 1) / 5) + 1)));
 		score_text.setText(""+context.getResources().getString(R.string.result_score,score));
 		tip.setText(GameOneGameConstants.generateRandomTip(context));
 		result_img.setImageResource(GameOneGameConstants.generateRandomDrawableResource());
+		GameOneLevelFragment.newBest=false;
 	}
 
 	@Override

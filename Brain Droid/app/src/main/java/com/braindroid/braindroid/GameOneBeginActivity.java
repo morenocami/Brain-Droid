@@ -45,16 +45,12 @@ public class GameOneBeginActivity extends Activity implements OnClickListener {
 
 					}
 				}, 1000);
-
 				break;
 
 			case R.id.result_help_button:
 
-				startActivity(new Intent(GameOneBeginActivity.this, GameOneHelpActivity.class)
-						.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
-								| Intent.FLAG_ACTIVITY_CLEAR_TOP));
+				startActivity(new Intent(GameOneBeginActivity.this, GameOneHelpActivity.class));
 				finish();
-
 				break;
 
 			default:

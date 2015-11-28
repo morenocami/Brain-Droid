@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,8 +28,7 @@ import java.util.List;
 import java.util.Random;
 
 
-public class GameOneLevelFragment extends Fragment implements AdapterView.OnItemClickListener,
-		View.OnClickListener {
+public class GameOneLevelFragment extends Fragment implements AdapterView.OnItemClickListener, View.OnClickListener {
 
 	public View root;
 	public FragmentActivity context;
@@ -52,9 +52,11 @@ public class GameOneLevelFragment extends Fragment implements AdapterView.OnItem
 	private Animation animationFadeIn;
 	FrameLayout frame;
 
+	static boolean newBest;
+
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-							 Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
 		root = inflater.inflate(R.layout.gameonelevelfragment, container, false); // create the size of the game grid view
 		context = getActivity();
 		res = getResources();
@@ -113,6 +115,7 @@ public class GameOneLevelFragment extends Fragment implements AdapterView.OnItem
 		rightdialogbutton.setOnClickListener(this);
 		wrongdialogbutton.setOnClickListener(this);
 		wrongdialogtrybutton.setOnClickListener(this);
+		newBest=false;
 		return root;
 	}
 
@@ -158,14 +161,11 @@ public class GameOneLevelFragment extends Fragment implements AdapterView.OnItem
 	}
 
 	private void checkanswer(int position) {
-		if (!isgridviewClickable()) {
-
-		} else {
-
-			if (anslist.get(position).equalsIgnoreCase("" + selecttext.getText().toString().charAt(selecttext.length() - 1)))
-			{
-
-				right_dia_text.setText(GameOneGameConstants.generateRandomSuccessMessage(context).toString());
+		if (!isgridviewClickable()) {}
+		else {
+			if (anslist.get(position).equalsIgnoreCase("" + selecttext.getText().toString().charAt(selecttext.length() - 1))) {
+				User.incRight(User.Game.MEMORY);
+				right_dia_text.setText(GameOneGameConstants.generateRandomSuccessMessage(context));
 				rightanslayout.setVisibility(View.VISIBLE);
 				right_dia_img.setImageResource(GameOneGameConstants.generateRandomHappyDrawableResource());
 				tip_text.setText(GameOneGameConstants.generateRandomTip(getActivity()));
@@ -173,10 +173,15 @@ public class GameOneLevelFragment extends Fragment implements AdapterView.OnItem
 				frame.setVisibility(View.GONE);
 				selecttext.setVisibility(View.GONE);
 
-			} else {
-
+			}
+			else {
+				User.incWrong(User.Game.MEMORY);
 				decrementlife();
+			}
 
+			if(User.checkBest(score,User.Game.MEMORY) && !newBest){
+				Toast.makeText(context, "New personal best!", Toast.LENGTH_SHORT).show();
+				newBest=true;
 			}
 		}
 
@@ -295,6 +300,7 @@ public class GameOneLevelFragment extends Fragment implements AdapterView.OnItem
 	public void onClick(View v) {
 
 		switch (v.getId()) {
+
 			case R.id.rightdialogbutton:
 				grid.setVisibility(View.VISIBLE);
 				frame.setVisibility(View.VISIBLE);
@@ -305,7 +311,6 @@ public class GameOneLevelFragment extends Fragment implements AdapterView.OnItem
 				question_timer.cancel();
 				if (level < numofcells.size())
 					setNextQuestion(getnumberofcells());
-				else {	}
 				break;
 
 			case R.id.wrongdialogbutton:
@@ -319,12 +324,9 @@ public class GameOneLevelFragment extends Fragment implements AdapterView.OnItem
 				question_timer.cancel();
 				if (level < numofcells.size())
 					setNextQuestion(getnumberofcells());
-				else {	}
-
 				break;
 
 			case R.id.wrongdialogtrybutton:
-
 				grid.setVisibility(View.VISIBLE);
 				wronganslayout.setVisibility(View.GONE);
 				frame.setVisibility(View.VISIBLE);

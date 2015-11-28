@@ -53,6 +53,7 @@
         <activity
             android:name=".MathGame"
             android:label="Math"
+            android:noHistory="true"
             android:windowSoftInputMode="stateHidden">
         </activity>
 
@@ -80,14 +81,16 @@
         </activity>
 
         <activity
-            android:name=".UserAccount"
+            android:name=".Account"
             android:label="Account Settings"
+            android:screenOrientation="sensorPortrait"
             android:windowSoftInputMode="stateHidden">
         </activity>
 
         <activity
-            android:name=".UserProgress"
+            android:name=".ProgressReports"
             android:label="Progress Reports"
+            android:screenOrientation="sensorPortrait"
             android:windowSoftInputMode="stateHidden">
         </activity>
         <activity

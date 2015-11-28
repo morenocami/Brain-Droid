@@ -5,17 +5,17 @@
     android:layout_height="fill_parent"
     android:weightSum="10"
     android:orientation="vertical"
-    android:background="@drawable/pattern"
+    android:background="#000000"
 
     >
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="fill_parent"
         android:layout_weight="9"
         android:layout_marginTop="@dimen/layout_margin30dp"
-        android:background="@drawable/pattern"
+        android:background="@drawable/splaashbackground"
         android:orientation="vertical"
         android:weightSum="10" >
 

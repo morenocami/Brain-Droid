@@ -12,7 +12,7 @@
         android:layout_weight="10"
         android:orientation="vertical"
         android:weightSum="10"
-        android:background="@drawable/pattern"
+        android:background="@drawable/splaashbackground"
         android:id="@+id/main_layout"
         android:visibility="visible"
         ><LinearLayout
@@ -71,7 +71,7 @@
                 android:visibility="gone"
                 >
 
-                <include layout="@layout/rightansdialog" />
+                <include layout="@layout/gameonerightansdialog" />
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/wronganslinlayout"
@@ -81,7 +81,7 @@
                 android:orientation="vertical"
                 android:visibility="gone" >
 
-                <include layout="@layout/dialogview" />
+                <include layout="@layout/gameonewronganddialog" />
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
@@ -144,9 +144,4 @@
 
         </LinearLayout>
     </LinearLayout>
-
-    <include layout="@layout/interstitialad"
-        android:visibility="gone"
-        />
-
-</LinearLayout>
+    </LinearLayout>

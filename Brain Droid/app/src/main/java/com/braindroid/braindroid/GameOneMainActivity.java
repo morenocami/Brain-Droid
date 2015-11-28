@@ -9,7 +9,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
 
 
-public class MainActivity extends ActionBarActivity  {
+public class GameOneMainActivity extends ActionBarActivity  {
 	FragmentManager fragment;
 	Builder alert;
 
@@ -17,10 +17,10 @@ public class MainActivity extends ActionBarActivity  {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.fragment2);
+		setContentView(R.layout.gameonemainactivity);
 		fragment = getSupportFragmentManager();
 		fragment.beginTransaction()
-				.replace(R.id.container, new LeveloneFragment()).commit();
+				.replace(R.id.container, new GameOneLevelFragment()).commit();
 		getSupportActionBar().hide();
 
 
@@ -35,7 +35,7 @@ public class MainActivity extends ActionBarActivity  {
 							@Override
 							public void onClick(DialogInterface dialog,
 												int which) {
-								startActivity(new Intent(MainActivity.this,BeginActivity.class)
+								startActivity(new Intent(GameOneMainActivity.this,GameOneBeginActivity.class)
 										.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP));
 								finish();
 							}

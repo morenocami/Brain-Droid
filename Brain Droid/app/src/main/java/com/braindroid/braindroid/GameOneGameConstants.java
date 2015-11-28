@@ -10,7 +10,7 @@ import com.braindroid.braindroid.R;
 
 import android.content.Context;
 
-public class GameConstants {
+public class GameOneGameConstants {
 
 	/**
 	 *

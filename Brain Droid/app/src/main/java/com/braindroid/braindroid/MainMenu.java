@@ -2,7 +2,6 @@ package com.braindroid.braindroid;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -70,18 +69,18 @@ public class MainMenu extends AppCompatActivity{
                     preview.setImageResource(R.drawable.memorygame_preview);
                 }
                 else{
-                    final Intent g2 = new Intent(this,BeginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    final Intent g2 = new Intent(this,GameOneBeginActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
                             | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(g2);
                     G2.setText("Memory");
-                }
+               }
                 G1.setText("Math");
                 G3.setText("Vocab");
                 break;
             case R.id.G3:
                 if(G3.getText().equals("Vocab")) {
                     G3.setText("START!");
-                    preview.setImageResource(R.drawable.memorygame_preview);
+                    preview.setImageResource(R.drawable.vocabpreview);
                 }
                 else{
                     final Intent g3 = new Intent(this,GameTwo.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK

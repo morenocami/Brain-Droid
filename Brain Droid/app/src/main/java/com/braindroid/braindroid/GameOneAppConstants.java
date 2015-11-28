@@ -2,7 +2,7 @@ package com.braindroid.braindroid;
 
 
 
-public interface AppConstants {
+public interface GameOneAppConstants {
 
 
 	/**

@@ -27,13 +27,13 @@ import java.util.List;
 import java.util.Random;
 
 
-public class LeveloneFragment extends Fragment implements AdapterView.OnItemClickListener,
+public class GameOneLevelFragment extends Fragment implements AdapterView.OnItemClickListener,
 		View.OnClickListener {
 
 	public View root;
 	public FragmentActivity context;
 	public GridView grid;
-	public GridAdapter adapter;
+	public GameOneGridAdapter adapter;
 	public List<String> list;
 	private TextView selecttext, score_textview, level_textview,
 			right_dia_text, wrong_dia_text, tip_text;
@@ -55,13 +55,13 @@ public class LeveloneFragment extends Fragment implements AdapterView.OnItemClic
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		root = inflater.inflate(R.layout.level1, container, false);
+		root = inflater.inflate(R.layout.gameonelevelfragment, container, false); // create the size of the game grid view
 		context = getActivity();
 		res = getResources();
 		score = 0;
 		level = 1;
 
-		num_life = AppConstants.num_of_lifes;
+		num_life = GameOneAppConstants.num_of_lifes;
 		life_resource = new ArrayList<Integer>();
 		life_resource.add(R.drawable.life1);
 		life_resource.add(R.drawable.life2);
@@ -71,11 +71,11 @@ public class LeveloneFragment extends Fragment implements AdapterView.OnItemClic
 		grid = (GridView) root.findViewById(R.id.grid);
 		progressBar = (ProgressBar) getActivity().findViewById(
 				R.id.time_progress);
-		progressBar.setMax((int) AppConstants.progress_duration);
+		progressBar.setMax((int) GameOneAppConstants.progress_duration);
 		animationFadeIn = AnimationUtils.loadAnimation(getActivity(),
 				R.anim.fadein);
 		list = new ArrayList<String>();
-		list = new HelperUtils(context)
+		list = new GameOneHelperUtils(context)
 				.loadMasterDataFromString(R.array.characters);
 		selecttext = (TextView) context.findViewById(R.id.selectCharacter);
 		level_textview = (TextView) context.findViewById(R.id.leveltextview);
@@ -127,8 +127,8 @@ public class LeveloneFragment extends Fragment implements AdapterView.OnItemClic
 	private void intialiseTimer() {
 		if (question_timer != null)
 			question_timer = null;
-		question_timer = new CountDownTimer(AppConstants.progress_duration,
-				AppConstants.progress_tick) {
+		question_timer = new CountDownTimer(GameOneAppConstants.progress_duration,
+				GameOneAppConstants.progress_tick) {
 			@Override
 			public void onTick(long millisUntilFinished) {
 				progressBar.setProgress((int) millisUntilFinished);
@@ -140,7 +140,7 @@ public class LeveloneFragment extends Fragment implements AdapterView.OnItemClic
 			public void onFinish() {
 
 				gridclickable = true;
-				grid.setAdapter(new GridAdapter(context, getTempList()));
+				grid.setAdapter(new GameOneGridAdapter(context, getTempList()));
 				selecttext.setText(context.getString(R.string.select,list.get(generateRandom(anslist.size()))));
 				progressBar.setVisibility(View.GONE);
 				selecttext.setVisibility(View.VISIBLE);
@@ -165,10 +165,10 @@ public class LeveloneFragment extends Fragment implements AdapterView.OnItemClic
 			if (anslist.get(position).equalsIgnoreCase("" + selecttext.getText().toString().charAt(selecttext.length() - 1)))
 			{
 
-				right_dia_text.setText(GameConstants.generateRandomSuccessMessage(context).toString());
+				right_dia_text.setText(GameOneGameConstants.generateRandomSuccessMessage(context).toString());
 				rightanslayout.setVisibility(View.VISIBLE);
-				right_dia_img.setImageResource(GameConstants.generateRandomHappyDrawableResource());
-				tip_text.setText(GameConstants.generateRandomTip(getActivity()));
+				right_dia_img.setImageResource(GameOneGameConstants.generateRandomHappyDrawableResource());
+				tip_text.setText(GameOneGameConstants.generateRandomTip(getActivity()));
 				grid.setVisibility(View.GONE);
 				frame.setVisibility(View.GONE);
 				selecttext.setVisibility(View.GONE);
@@ -198,11 +198,11 @@ public class LeveloneFragment extends Fragment implements AdapterView.OnItemClic
 
 		if (i > numofcolumns.size()) {
 
-			Intent intent = new Intent(context, ResultActivity.class)
+			Intent intent = new Intent(context, GameOneResultActivity.class)
 					.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
 							| Intent.FLAG_ACTIVITY_CLEAR_TOP);
-			intent.putExtra(AppConstants.levelkey, level);
-			intent.putExtra(AppConstants.scorekey, score);
+			intent.putExtra(GameOneAppConstants.levelkey, level);
+			intent.putExtra(GameOneAppConstants.scorekey, score);
 			startActivity(intent);
 			getActivity().finish();
 
@@ -237,7 +237,7 @@ public class LeveloneFragment extends Fragment implements AdapterView.OnItemClic
 		anslist = new ArrayList<String>();
 		Collections.shuffle(list3);
 		anslist = list3.subList(0, size);
-		adapter = new GridAdapter(context, anslist);
+		adapter = new GameOneGridAdapter(context, anslist);
 		grid.setNumColumns(getnumofColums());
 		grid.setAdapter(adapter);
 
@@ -266,8 +266,8 @@ public class LeveloneFragment extends Fragment implements AdapterView.OnItemClic
 		if (num_life > 0) {
 
 			life_imgview.setImageResource(life_resource.get(num_life - 1));
-			wrong_dia_text.setText(GameConstants.generateRandomFailMessage(context));
-			wrong_dia_img.setImageResource(GameConstants.generateRandomSadDrawableResource());
+			wrong_dia_text.setText(GameOneGameConstants.generateRandomFailMessage(context));
+			wrong_dia_img.setImageResource(GameOneGameConstants.generateRandomSadDrawableResource());
 			grid.setVisibility(View.GONE);
 			selecttext.setVisibility(View.INVISIBLE);
 			frame.setVisibility(View.GONE);
@@ -275,11 +275,11 @@ public class LeveloneFragment extends Fragment implements AdapterView.OnItemClic
 
 		} else {
 
-			Intent intent = new Intent(context, ResultActivity.class)
+			Intent intent = new Intent(context, GameOneResultActivity.class)
 					.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
 							| Intent.FLAG_ACTIVITY_CLEAR_TOP);
-			intent.putExtra(AppConstants.levelkey, level);
-			intent.putExtra(AppConstants.scorekey, score);
+			intent.putExtra(GameOneAppConstants.levelkey, level);
+			intent.putExtra(GameOneAppConstants.scorekey, score);
 			startActivity(intent);
 			getActivity().finish();
 		}

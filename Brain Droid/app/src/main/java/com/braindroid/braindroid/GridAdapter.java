@@ -2,6 +2,7 @@ package com.braindroid.braindroid;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,9 +50,10 @@ public class GridAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
-		
-		
-			 inflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+		Log.i(User.TAG, "GridAdapter.java");
+
+		inflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			convertView=inflater.inflate(R.layout.list_item, null);
 			tex=(TextView)convertView.findViewById(R.id.textView1);
 			tex.setText(list.get(position));

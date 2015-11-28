@@ -2,6 +2,7 @@ package com.braindroid.braindroid;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,9 +19,9 @@ public class Frag_Vocab_Hint extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
+        Log.i(User.TAG, "Frag_Vocab_Hint.java");
+
         view= inflater.inflate(R.layout.about_us, container,false);
-
-
         return view;
     }
 

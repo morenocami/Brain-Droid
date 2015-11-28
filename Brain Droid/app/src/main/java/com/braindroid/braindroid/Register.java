@@ -65,13 +65,23 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
                         }
                     }
                     if (!match) {
-                        final ParseObject newUser = new ParseObject("User");
-                        newUser.put("username", username.getText().toString());
-                        newUser.put("password", password.getText().toString());
-                        newUser.put("firstname", firstname.getText().toString());
-                        newUser.put("lastname", lastname.getText().toString());
-                        newUser.put("studentOf", teacher);
-                        newUser.saveInBackground();
+                        LogIn.user = new ParseObject("User");
+                        LogIn.user.put("username", username.getText().toString());
+                        LogIn.user.put("password", password.getText().toString());
+                        LogIn.user.put("firstname", firstname.getText().toString());
+                        LogIn.user.put("lastname", lastname.getText().toString());
+                        LogIn.user.put("studentOf", teacher);
+                        LogIn.user.put("mathBest", 0);
+                        LogIn.user.put("mathRight", 0);
+                        LogIn.user.put("mathWrong", 0);
+                        LogIn.user.put("memoryBest", 0);
+                        LogIn.user.put("memoryRight", 0);
+                        LogIn.user.put("memoryWrong", 0);
+                        LogIn.user.put("vocabBest", 0);
+                        LogIn.user.put("vocabRight", 0);
+                        LogIn.user.put("vocabWrong", 0);
+                        LogIn.user.saveInBackground();
+                        User.userFound(LogIn.user);
                         final Intent next = new Intent(Register.this, MainMenu.class);
                         startActivity(next);
                     }

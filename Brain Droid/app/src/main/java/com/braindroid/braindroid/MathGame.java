@@ -1,12 +1,15 @@
 package com.braindroid.braindroid;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,8 +29,10 @@ public class MathGame extends AppCompatActivity{
     private LinearLayout mathLayout, questionLayout;
     private TextView operand1, operand2, operator, answer, score;
     private ImageView check;
-    private int op1, op2, opr, ans, count=0;
+    private int op1, op2, opr, ans;
+    private static int count=0;
     private Random rand = new Random();
+    private boolean newBest;
 
 
     @Override
@@ -43,6 +48,8 @@ public class MathGame extends AppCompatActivity{
         answer = (TextView) findViewById(R.id.answerText);
         score = (TextView) findViewById(R.id.score);
         check = (ImageView) findViewById(R.id.mathImage);
+
+        newBest=false;
 
         final Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
@@ -85,30 +92,37 @@ public class MathGame extends AppCompatActivity{
         }
         else if(answer.getText().equals("0"))
             answer.setText(b.getText());
-        else if(b.getText().equals("+/-"))
+        else if(b.getText().equals("+/-")){
+            if(answer.getText().charAt(0)=='-'){return;}
             answer.setText("-"+answer.getText().toString());
+        }
         else
             answer.setText(answer.getText().toString()+b.getText().toString());
     }
 
-    public void clear(View v){
-        answer.setText("?");
-    }
+    public void clear(View v){ answer.setText("?"); }
 
     public void submit(View v){
         if (answer.getText().equals("?"))
             Toast.makeText(getApplicationContext(), "Enter your answer!", Toast.LENGTH_SHORT).show();
         else {
+            //answer is right
             if (ans==Integer.parseInt(answer.getText().toString())){
                 check.setImageResource(R.drawable.correct);
-                User.incRight();
+                User.incRight(User.Game.MATH);
                 count++;
             }
+            //answer is wrong
             else{
                 check.setImageResource(R.drawable.incorrect);
-                User.incWrong();
+                User.incWrong(User.Game.MATH);
                 if(count==0){}
-                else count-=1;
+                else count--;
+            }
+
+            if(User.checkBest(count,User.Game.MATH) && !newBest){
+                Toast.makeText(getApplicationContext(), "New personal best!", Toast.LENGTH_SHORT).show();
+                newBest=true;
             }
             score.setText("Score: " + count);
             answer.setVisibility(View.GONE);
@@ -139,7 +153,21 @@ public class MathGame extends AppCompatActivity{
                 questionLayout.setOrientation(LinearLayout.HORIZONTAL);
             }
             generate();
+            score.setText("Score: " + count);
         }
+    }
+
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        //Handle the back button
+        if(keyCode == KeyEvent.KEYCODE_BACK && this==MathGame.this) {
+            count = 0;
+            final Intent back = new Intent(this, MainMenu.class);
+            back.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(back);
+            return super.onKeyDown(keyCode, event);
+        }
+        else
+            return super.onKeyDown(keyCode, event);
     }
 
     @Override
@@ -153,16 +181,14 @@ public class MathGame extends AppCompatActivity{
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_back:
-                final Intent back = new Intent(this, MainMenu.class);
-                back.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(back);
+                onKeyDown(KeyEvent.KEYCODE_BACK, new KeyEvent(0, 0));
                 return true;
 
-            /*case R.id.action_forward:
-                final Intent register = new Intent(this, Register.class);
-                startActivity(register);
+            case R.id.action_forward:
+                //final Intent highscores = new Intent(this, HighScores.class);
+                //startActivity(highscores);
                 return true;
-            */
+
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
@@ -170,5 +196,4 @@ public class MathGame extends AppCompatActivity{
 
         }
     }
-
 }

@@ -15,6 +15,8 @@ public class Splash extends AppCompatActivity {
     private View fau, logo, team;
     private int animDuration;
     private boolean skip=false;
+    private Intent out;
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -30,6 +32,7 @@ public class Splash extends AppCompatActivity {
 
         animDuration = getResources().getInteger(
                 android.R.integer.config_longAnimTime)*3;
+        out = new Intent(Splash.this, LogIn.class);
     }
 
     public void skipSplash(View v){
@@ -49,11 +52,8 @@ public class Splash extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                if(skip){
-                    skip=false;
-                    fau.setVisibility(View.GONE);
-                    crossFade2();
-                }
+                if(skip)
+                    startActivity(out);
                 else{
                     fau.animate().alpha(0f).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
                         @Override
@@ -74,11 +74,8 @@ public class Splash extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                if(skip){
-                    skip=false;
-                    logo.setVisibility(View.GONE);
-                    crossFade3();
-                }
+                if(skip)
+                    startActivity(out);
                 else {
                     logo.animate().alpha(0f).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
                         @Override
@@ -94,19 +91,14 @@ public class Splash extends AppCompatActivity {
     }
 
     private void crossFade3(){
-        final Intent out = new Intent(this, LogIn.class);
         team.setVisibility(View.VISIBLE);
         team.animate().alpha(1f).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                if(skip){
-                    skip=false;
-                    team.setVisibility(View.GONE);
+                if(skip)
                     startActivity(out);
-                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                }
-                else{
+                else {
                     team.animate().alpha(0f).setDuration(animDuration).setListener(new AnimatorListenerAdapter() {
                         @Override
                         public void onAnimationEnd(Animator animation) {

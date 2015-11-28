@@ -7,7 +7,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 
 
 public class MainActivity extends ActionBarActivity  {
@@ -19,9 +18,6 @@ public class MainActivity extends ActionBarActivity  {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.fragment2);
-
-		Log.i(User.TAG, "MainActivity.java");
-
 		fragment = getSupportFragmentManager();
 		fragment.beginTransaction()
 				.replace(R.id.container, new LeveloneFragment()).commit();

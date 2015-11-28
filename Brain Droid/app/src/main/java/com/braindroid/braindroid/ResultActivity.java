@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
@@ -27,9 +26,6 @@ public class ResultActivity extends ActionBarActivity implements OnClickListener
 		super.onCreate(savedInstanceState);
 		context = ResultActivity.this;
 		setContentView(R.layout.resultlayout);
-
-		Log.i(User.TAG, "ResultActivity.java");
-
 		intent = getIntent();
 		level = intent.getExtras().getInt(AppConstants.levelkey);
 		score = intent.getExtras().getInt(AppConstants.scorekey);
@@ -42,11 +38,10 @@ public class ResultActivity extends ActionBarActivity implements OnClickListener
 		menubutton.setOnClickListener(this);
 		trygain.setOnClickListener(this);
 
-		level_text.setText("" + context.getResources().getString(R.string.result_level, (((level - 1) / 5) + 1)));
+		level_text.setText(""+context.getResources().getString(R.string.result_level, (((level - 1) / 5) + 1)));
 		score_text.setText(""+context.getResources().getString(R.string.result_score,score));
 		tip.setText(GameConstants.generateRandomTip(context));
 		result_img.setImageResource(GameConstants.generateRandomDrawableResource());
-		LeveloneFragment.newBest=false;
 	}
 
 	@Override

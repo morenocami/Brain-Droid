@@ -23,8 +23,6 @@ public class BeginActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.begintestfragment);
 
-		Log.i(User.TAG, "BeginActivity.java");
-
 		alert = new AlertDialog.Builder(this)
 				.setIcon(android.R.drawable.ic_dialog_alert)
 				.setTitle(R.string.quit)
@@ -72,11 +70,14 @@ public class BeginActivity extends Activity implements OnClickListener {
 
 					}
 				}, 1000);
+
 				break;
 
 			case R.id.result_help_button:
 
-				startActivity(new Intent(BeginActivity.this, HelpActivity.class));
+				startActivity(new Intent(BeginActivity.this, HelpActivity.class)
+						.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
+								| Intent.FLAG_ACTIVITY_CLEAR_TOP));
 				finish();
 
 				break;

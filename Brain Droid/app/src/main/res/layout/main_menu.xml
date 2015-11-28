@@ -45,7 +45,7 @@
                     android:id="@+id/G1"
                     android:layout_weight="1"
                     android:layout_margin="10dp"
-                    android:background="@drawable/button_blue"
+                    android:background="@drawable/math_icon"
                     android:onClick="enterGame" />
 
                 <Button
@@ -55,8 +55,7 @@
                     android:id="@+id/G2"
                     android:layout_weight="1"
                     android:layout_margin="10dp"
-                    android:onClick="enterGame"
-                    android:background="@drawable/button_green" />
+                    android:onClick="enterGame" />
 
                 <Button
                     android:layout_width="fill_parent"
@@ -65,8 +64,7 @@
                     android:id="@+id/G3"
                     android:layout_weight="1"
                     android:layout_margin="10dp"
-                    android:onClick="enterGame"
-                    android:background="@drawable/button_purple" />
+                    android:onClick="enterGame" />
             </LinearLayout>
 
             <LinearLayout

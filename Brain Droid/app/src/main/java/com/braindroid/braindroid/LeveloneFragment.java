@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +19,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,7 +27,8 @@ import java.util.List;
 import java.util.Random;
 
 
-public class LeveloneFragment extends Fragment implements AdapterView.OnItemClickListener, View.OnClickListener {
+public class LeveloneFragment extends Fragment implements AdapterView.OnItemClickListener,
+		View.OnClickListener {
 
 	public View root;
 	public FragmentActivity context;
@@ -53,13 +52,9 @@ public class LeveloneFragment extends Fragment implements AdapterView.OnItemClic
 	private Animation animationFadeIn;
 	FrameLayout frame;
 
-	static boolean newBest;
-
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-		Log.i(User.TAG, "LeveloneFragment.java");
-
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+							 Bundle savedInstanceState) {
 		root = inflater.inflate(R.layout.level1, container, false);
 		context = getActivity();
 		res = getResources();
@@ -118,7 +113,6 @@ public class LeveloneFragment extends Fragment implements AdapterView.OnItemClic
 		rightdialogbutton.setOnClickListener(this);
 		wrongdialogbutton.setOnClickListener(this);
 		wrongdialogtrybutton.setOnClickListener(this);
-		newBest=false;
 		return root;
 	}
 
@@ -166,13 +160,12 @@ public class LeveloneFragment extends Fragment implements AdapterView.OnItemClic
 	private void checkanswer(int position) {
 		if (!isgridviewClickable()) {
 
-		}
-		else {
-			Log.i(User.TAG,"inside checkanswer()");
+		} else {
+
 			if (anslist.get(position).equalsIgnoreCase("" + selecttext.getText().toString().charAt(selecttext.length() - 1)))
 			{
-				User.incRight(User.Game.MEMORY);
-				right_dia_text.setText(GameConstants.generateRandomSuccessMessage(context));
+
+				right_dia_text.setText(GameConstants.generateRandomSuccessMessage(context).toString());
 				rightanslayout.setVisibility(View.VISIBLE);
 				right_dia_img.setImageResource(GameConstants.generateRandomHappyDrawableResource());
 				tip_text.setText(GameConstants.generateRandomTip(getActivity()));
@@ -181,20 +174,15 @@ public class LeveloneFragment extends Fragment implements AdapterView.OnItemClic
 				selecttext.setVisibility(View.GONE);
 
 			} else {
-				User.incWrong(User.Game.MEMORY);
-				decrementlife();
-			}
 
-			if(User.checkBest(score,User.Game.MEMORY) && !newBest){
-				Toast.makeText(context, "New personal best!", Toast.LENGTH_SHORT).show();
-				newBest=true;
+				decrementlife();
+
 			}
 		}
 
 	}
 
 	private void updatescore(int i) {
-
 		score = score + i;
 		score_textview.setText(res.getString(R.string.score, score));
 		setLevel();
@@ -317,6 +305,7 @@ public class LeveloneFragment extends Fragment implements AdapterView.OnItemClic
 				question_timer.cancel();
 				if (level < numofcells.size())
 					setNextQuestion(getnumberofcells());
+				else {	}
 				break;
 
 			case R.id.wrongdialogbutton:
@@ -330,10 +319,12 @@ public class LeveloneFragment extends Fragment implements AdapterView.OnItemClic
 				question_timer.cancel();
 				if (level < numofcells.size())
 					setNextQuestion(getnumberofcells());
+				else {	}
 
 				break;
 
 			case R.id.wrongdialogtrybutton:
+
 				grid.setVisibility(View.VISIBLE);
 				wronganslayout.setVisibility(View.GONE);
 				frame.setVisibility(View.VISIBLE);

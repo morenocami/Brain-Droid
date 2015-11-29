@@ -33,10 +33,6 @@ import java.util.Random;
 public class GameTwo extends AppCompatActivity {
 
 
-    //Need to create a hash map for vocabulary words.
-    //to randomly select a word
-    //and generate the definitions of the word
-
     private HashMap<Integer, String> vocabMap = new HashMap<Integer, String>();
     private HashMap<Integer, String> definitionMap = new HashMap<Integer, String>();
     private HashMap<Integer, String> sentenceMap = new HashMap<Integer, String>();
@@ -50,9 +46,6 @@ public class GameTwo extends AppCompatActivity {
     private TextView question_number;
     private int number_of_questions= 10, question_num=0, number_correct=0;
     private double decimal_correctness;
-    android.support.v4.app.Fragment f;
-    FragmentManager fm = getSupportFragmentManager();
-    private LinearLayout Hintlay, questionLay;
 
     private boolean newBest;
 
@@ -61,10 +54,7 @@ public class GameTwo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gametwo);
-
-        Hintlay = (LinearLayout) findViewById(R.id.lay2);
-        questionLay = (LinearLayout) findViewById(R.id.rel);
-
+        
         next =(Button) findViewById(R.id.button);
         hint =(Button) findViewById(R.id.button10);
         Hint = (TextView) findViewById(R.id.textView12);
@@ -154,17 +144,21 @@ public class GameTwo extends AppCompatActivity {
 
     public void Hint(View v)
     {
+        hint.setVisibility(v.GONE);
         Hint.setText(sentenceMap.get(randomInt));
     }
 
     public void NextClick(View v) {
-        Hint.setText("");
         if(definitionGroup.getCheckedRadioButtonId()==-1) {
 
             Toast.makeText(getApplicationContext(), "You Must Answer",
                     Toast.LENGTH_SHORT).show();
         }
         else {
+
+            Hint.setText("");
+            Hint.setHint("Press Hint, Lose 10 Points");
+            hint.setVisibility(v.VISIBLE);
 
             if (question_num < 10) {
                 check_answers();
@@ -203,10 +197,11 @@ public class GameTwo extends AppCompatActivity {
         }
         else {
             User.incWrong(User.Game.VOCAB);
-            Toast.makeText(getApplicationContext(),"            Correct Answer: \n" + vocabMap.get(randomInt)+ " - " + definitionMap.get(randomInt), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), vocabMap.get(randomInt) + " - " + definitionMap.get(randomInt),
+                    Toast.LENGTH_SHORT).show();
         }
 
-        if(User.checkBest(number_correct, User.Game.VOCAB) && !newBest){
+            if(User.checkBest(number_correct, User.Game.VOCAB) && !newBest){
             Toast.makeText(this, "New personal best!", Toast.LENGTH_SHORT).show();
             newBest=true;
         }
@@ -215,36 +210,57 @@ public class GameTwo extends AppCompatActivity {
     public void populate_question() {
 
         randomInt = randomGenerator.nextInt(99);
+        randomInt2=randomGen2.nextInt(99);
+        boolean set=false;
 
 
         vocabWord.setText(vocabMap.get(randomInt));
 
         def1.setText(definitionMap.get(randomInt));
-        def2.setText(definitionMap.get(randomGen2.nextInt(99)));
-        def3.setText(definitionMap.get(randomGen2.nextInt(99)));
-        def4.setText(definitionMap.get(randomGen2.nextInt(99)));
+        while(!set) {
+
+            if (randomInt2 != randomInt) {
+                def2.setText(definitionMap.get(randomInt2));
+                set=true;
+
+            } else {
+
+                randomInt2 = randomGen2.nextInt(99);
+            }
+        }
+
+        set=false;
+
+        randomInt2 = randomGen2.nextInt(99);
+        while(!set) {
+
+            if (randomInt2 != randomInt) {
+                def3.setText(definitionMap.get(randomInt2));
+                set=true;
+
+            } else {
+
+                randomInt2 = randomGen2.nextInt(99);
+            }
+        }
+
+        set=false;
+        randomInt2 = randomGen2.nextInt(99);
+
+        while(!set) {
+
+            if (randomInt2 != randomInt) {
+                def4.setText(definitionMap.get(randomInt2));
+                set=true;
+
+            } else {
+
+                randomInt2 = randomGen2.nextInt(99);
+            }
+        }
 
         question_num++;
         question_number.setText(question_num + " out of " + number_of_questions);
     }
 
-
-
-    public void changeHintFrag(View v)
-    {
-        FragmentTransaction t=fm.beginTransaction();
-
-        switch (v.getId()) {
-            case R.id.authors:
-                f = new Frag_AboutUs();
-                t.replace(R.id.lay, f);
-                t.commitAllowingStateLoss();
-                break;
-            case R.id.app:
-                f = new Frag_AboutApp();
-                t.replace(R.id.lay, f);
-                t.commitAllowingStateLoss();
-            default:
-        }
-    }
 }

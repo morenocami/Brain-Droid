@@ -54,32 +54,46 @@ public class MathGame extends AppCompatActivity{
     }
 
     private void generate(){
-        op1=rand.nextInt(12)+1;
-        op2=rand.nextInt(12)+1;
         opr=rand.nextInt(4);
-        operand1.setText(Integer.toString(op1));
-        operand2.setText(Integer.toString(op2));
-        answer.setText("?");
         switch (opr) {
             case 0:
+                op1=rand.nextInt(100)+1;
+                op2=rand.nextInt(100)+1;
                 ans = op1 + op2;
                 operator.setText("+");
                 break;
             case 1:
+                op1=rand.nextInt(100)+1;
+                op2=rand.nextInt(100)+1;
                 ans = op1 - op2;
                 operator.setText("-");
                 break;
             case 2:
+                op1=rand.nextInt(20)+1;
+                op2=rand.nextInt(20)+1;
                 ans = op1 * op2;
                 operator.setText("*");
                 break;
             case 3:
+                op1=rand.nextInt(100)+1;
+                op2=getDividend();
                 ans = op1 / op2;
-                Toast.makeText(getApplicationContext(), "Integer Division! (truncates)", Toast.LENGTH_SHORT).show();
                 operator.setText("/");
                 break;
             default:
         }
+        operand1.setText(Integer.toString(op1));
+        operand2.setText(Integer.toString(op2));
+        answer.setText("?");
+    }
+
+    private int getDividend(){
+        op2=rand.nextInt(100)+1;
+        while((op1%op2)!=0){
+            op2++;
+            if(op2>op1){op2=rand.nextInt(100)+1;}
+        }
+        return op2;
     }
 
     public void input(View v){
@@ -103,6 +117,7 @@ public class MathGame extends AppCompatActivity{
     }
 
     public void submit(View v){
+        findViewById(R.id.math_enter).setClickable(false);
         if (answer.getText().equals("?"))
             Toast.makeText(getApplicationContext(), "Enter your answer!", Toast.LENGTH_SHORT).show();
         else {
@@ -136,6 +151,7 @@ public class MathGame extends AppCompatActivity{
                     check.setVisibility(View.GONE);
                     generate();
                     score.setText("Score: " + count);
+                    findViewById(R.id.math_enter).setClickable(true);
                 }
             }, 1000);
         }

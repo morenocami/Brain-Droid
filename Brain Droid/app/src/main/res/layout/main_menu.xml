@@ -87,7 +87,8 @@
                     android:layout_above="@+id/logo"
                     android:layout_centerHorizontal="true"
                     android:layout_weight="1"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"/>
 
                 <TextView
                     android:id="@+id/logo"

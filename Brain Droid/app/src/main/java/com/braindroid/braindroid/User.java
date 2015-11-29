@@ -89,6 +89,15 @@ public class User{
                 LogIn.user.saveInBackground();
                 return false;
             case VOCAB:
+                LogIn.user.put("vocabRight", vocabRight);
+                LogIn.user.put("vocabWrong", vocabWrong);
+                if(score> vocabBest){
+                    vocabBest = score;
+                    LogIn.user.put("vocabBest", vocabBest);
+                    LogIn.user.saveInBackground();
+                    return true;
+                }
+                LogIn.user.saveInBackground();
                 return false;
             default:
                 return false;

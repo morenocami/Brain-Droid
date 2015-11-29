@@ -117,10 +117,10 @@ public class MathGame extends AppCompatActivity{
     }
 
     public void submit(View v){
-        findViewById(R.id.math_enter).setClickable(false);
         if (answer.getText().equals("?"))
             Toast.makeText(getApplicationContext(), "Enter your answer!", Toast.LENGTH_SHORT).show();
         else {
+            findViewById(R.id.math_enter).setClickable(false);
             //answer is right
             if (ans==Integer.parseInt(answer.getText().toString())){
                 check.setImageResource(R.drawable.correct);

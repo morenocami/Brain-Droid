@@ -17,6 +17,7 @@ import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.SaveCallback;
 
 import java.util.List;
 
@@ -80,12 +81,21 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
                         LogIn.user.put("vocabBest", 0);
                         LogIn.user.put("vocabRight", 0);
                         LogIn.user.put("vocabWrong", 0);
-                        LogIn.user.saveInBackground();
+                        LogIn.user.saveInBackground(new SaveCallback() {
+                            @Override
+                            public void done(ParseException e) {
+                                if(e==null) {
+                                    final Intent next = new Intent(Register.this, MainMenu.class);
+                                    startActivity(next);
+                                }
+                                else
+                                    Toast.makeText(getApplicationContext(), "There was an error. Please try again.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
                         User.userFound(LogIn.user);
-                        final Intent next = new Intent(Register.this, MainMenu.class);
-                        startActivity(next);
                     }
-                } else {
+                }
+                else {
                     Toast.makeText(getApplicationContext(), "There was an error. Please try again.", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -123,7 +133,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_back:
-                final Intent back = new Intent(this, LogIn.class);
+                final Intent back = new Intent(this, LogIn.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(back);
                 return true;
 

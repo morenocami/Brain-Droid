@@ -88,10 +88,10 @@ public class MathGame extends AppCompatActivity{
     }
 
     private int getDividend(){
-        op2=rand.nextInt(100)+1;
+        op2=rand.nextInt(10)+1;
         while((op1%op2)!=0){
             op2++;
-            if(op2>op1){op2=rand.nextInt(100)+1;}
+            if(op2>op1){op2=rand.nextInt(10)+1;}
         }
         return op2;
     }

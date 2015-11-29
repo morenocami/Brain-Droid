@@ -5,7 +5,7 @@
         android:id="@+id/action_back"
         android:icon="@drawable/action_back"
         android:title="action_back"
-        app:showAsAction="always"/>
+        app:showAsAction="always|withText"/>
 
     <item
         android:id="@+id/account"

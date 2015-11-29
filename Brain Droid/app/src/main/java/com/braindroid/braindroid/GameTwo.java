@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -75,10 +78,12 @@ public class GameTwo extends AppCompatActivity {
         def3 = (RadioButton) findViewById(R.id.rb3);
         def4 = (RadioButton) findViewById(R.id.rb4);
         next = (Button) findViewById(R.id.button);
-
         question_number= (TextView) findViewById(R.id.textView10);
 
         newBest=false;
+
+        final Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
 
         PopulateHash();
     }
@@ -190,8 +195,7 @@ public class GameTwo extends AppCompatActivity {
         }
     }
 
-    public void check_answers()
-    {
+    public void check_answers() {
         selectedId = definitionGroup.getCheckedRadioButtonId();
         definition = (RadioButton) findViewById(selectedId);
 
@@ -230,8 +234,7 @@ public class GameTwo extends AppCompatActivity {
 
 
 
-    public void changeHintFrag(View v)
-    {
+    public void changeHintFrag(View v) {
         FragmentTransaction t=fm.beginTransaction();
 
         switch (v.getId()) {
@@ -245,6 +248,32 @@ public class GameTwo extends AppCompatActivity {
                 t.replace(R.id.lay, f);
                 t.commitAllowingStateLoss();
             default:
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.action_bar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_back:
+                final Intent back = new Intent(this, MainMenu.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(back);
+                return true;
+
+            case R.id.action_forward:
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
         }
     }
 }

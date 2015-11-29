@@ -43,9 +43,9 @@ public class GameTwo extends AppCompatActivity {
     private int randomInt, selectedId, randomInt2;
     private Random randomGenerator = new Random();
     private Random randomGen2 = new Random();
-    private TextView question_number;
+    private TextView question_number, score;
     private int number_of_questions= 10, question_num=0, number_correct=0;
-    private double decimal_correctness;
+    private double decimal_correctness, points=0;
 
     private boolean newBest;
 
@@ -54,11 +54,12 @@ public class GameTwo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gametwo);
-        
+
         next =(Button) findViewById(R.id.button);
         hint =(Button) findViewById(R.id.button10);
         Hint = (TextView) findViewById(R.id.textView12);
         vocabWord = (TextView) findViewById(R.id.textView9);
+        score = (TextView) findViewById(R.id.textView16);
         definitionGroup = (RadioGroup) findViewById(R.id.rg);
         def1 = (RadioButton) findViewById(R.id.rb1);
         def2 = (RadioButton) findViewById(R.id.rb2);
@@ -146,6 +147,9 @@ public class GameTwo extends AppCompatActivity {
     {
         hint.setVisibility(v.GONE);
         Hint.setText(sentenceMap.get(randomInt));
+
+        points=points-.5;
+        score.setText("Score: " + points);
     }
 
     public void NextClick(View v) {
@@ -157,7 +161,7 @@ public class GameTwo extends AppCompatActivity {
         else {
 
             Hint.setText("");
-            Hint.setHint("Press Hint, Lose 10 Points");
+            Hint.setHint("Press Hint, Lose Half Point");
             hint.setVisibility(v.VISIBLE);
 
             if (question_num < 10) {
@@ -169,7 +173,7 @@ public class GameTwo extends AppCompatActivity {
 
                     //should check parse history to see if this new value, below, is greatest
                     //if greatest, then make a toast! and add to high score (variable declaration needed), else do not say anything
-                    decimal_correctness = number_correct / number_of_questions;
+                    decimal_correctness = points / number_of_questions;
                     //then save into parse
                 }
 
@@ -191,7 +195,8 @@ public class GameTwo extends AppCompatActivity {
 
         if(definitionMap.get(randomInt)==definition.getText()) {
             User.incRight(User.Game.VOCAB);
-            number_correct++;
+            points+=1;
+            score.setText("Score: " + points);
             Toast.makeText(getApplicationContext(), "Good Job",
                     Toast.LENGTH_SHORT).show();
         }
@@ -199,6 +204,9 @@ public class GameTwo extends AppCompatActivity {
             User.incWrong(User.Game.VOCAB);
             Toast.makeText(getApplicationContext(), vocabMap.get(randomInt) + " - " + definitionMap.get(randomInt),
                     Toast.LENGTH_SHORT).show();
+
+            points-=1;
+            score.setText("Score: " + points);
         }
 
             if(User.checkBest(number_correct, User.Game.VOCAB) && !newBest){

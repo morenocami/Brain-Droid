@@ -40,7 +40,7 @@ public class GameTwo extends AppCompatActivity {
     private RadioGroup definitionGroup;
     private RadioButton def1, def2, def3, def4, definition;
     private Button next, hint;
-    private int randomInt, selectedId, randomInt2;
+    private int randomInt, selectedId, randomInt2, radiob=1;
     private Random randomGenerator = new Random();
     private Random randomGen2 = new Random();
     private TextView question_number, score;
@@ -224,46 +224,174 @@ public class GameTwo extends AppCompatActivity {
 
         vocabWord.setText(vocabMap.get(randomInt));
 
-        def1.setText(definitionMap.get(randomInt));
-        while(!set) {
+        if(radiob==1) {
 
-            if (randomInt2 != randomInt) {
-                def2.setText(definitionMap.get(randomInt2));
-                set=true;
+            radiob+=1;
+            def1.setText(definitionMap.get(randomInt));
+            while(!set) {
 
-            } else {
+                if (randomInt2 != randomInt) {
+                    def2.setText(definitionMap.get(randomInt2));
+                    set=true;
 
-                randomInt2 = randomGen2.nextInt(99);
+                } else {
+
+                    randomInt2 = randomGen2.nextInt(99);
+                }
+            }
+            set=false;
+            randomInt2 = randomGen2.nextInt(99);
+            while(!set) {
+
+                if (randomInt2 != randomInt) {
+                    def3.setText(definitionMap.get(randomInt2));
+                    set=true;
+
+                } else {
+
+                    randomInt2 = randomGen2.nextInt(99);
+                }
+            }
+            set=false;
+            randomInt2 = randomGen2.nextInt(99);
+            while(!set) {
+
+                if (randomInt2 != randomInt) {
+                    def4.setText(definitionMap.get(randomInt2));
+                    set=true;
+
+                } else {
+
+                    randomInt2 = randomGen2.nextInt(99);
+                }
             }
         }
+        else if(radiob==2) {
 
-        set=false;
+            def2.setText(definitionMap.get(randomInt));
+            radiob+=1;
+            while (!set) {
 
-        randomInt2 = randomGen2.nextInt(99);
-        while(!set) {
+                if (randomInt2 != randomInt) {
+                    def1.setText(definitionMap.get(randomInt2));
+                    set = true;
 
-            if (randomInt2 != randomInt) {
-                def3.setText(definitionMap.get(randomInt2));
-                set=true;
+                } else {
 
-            } else {
+                    randomInt2 = randomGen2.nextInt(99);
+                }
+            }
 
-                randomInt2 = randomGen2.nextInt(99);
+            set = false;
+            randomInt2 = randomGen2.nextInt(99);
+            while (!set) {
+
+                if (randomInt2 != randomInt) {
+                    def3.setText(definitionMap.get(randomInt2));
+                    set = true;
+
+                } else {
+
+                    randomInt2 = randomGen2.nextInt(99);
+                }
+            }
+            set = false;
+            randomInt2 = randomGen2.nextInt(99);
+            while (!set) {
+
+                if (randomInt2 != randomInt) {
+                    def4.setText(definitionMap.get(randomInt2));
+                    set = true;
+
+                } else {
+
+                    randomInt2 = randomGen2.nextInt(99);
+                }
             }
         }
+        else if(radiob==3) {
+            def3.setText(definitionMap.get(randomInt));
+            radiob+=1;
+            while (!set) {
 
-        set=false;
-        randomInt2 = randomGen2.nextInt(99);
+                if (randomInt2 != randomInt) {
+                    def1.setText(definitionMap.get(randomInt2));
+                    set = true;
 
-        while(!set) {
+                } else {
 
-            if (randomInt2 != randomInt) {
-                def4.setText(definitionMap.get(randomInt2));
-                set=true;
+                    randomInt2 = randomGen2.nextInt(99);
+                }
+            }
 
-            } else {
+            set = false;
+            randomInt2 = randomGen2.nextInt(99);
+            while (!set) {
 
-                randomInt2 = randomGen2.nextInt(99);
+                if (randomInt2 != randomInt) {
+                    def2.setText(definitionMap.get(randomInt2));
+                    set = true;
+
+                } else {
+
+                    randomInt2 = randomGen2.nextInt(99);
+                }
+            }
+            set = false;
+            randomInt2 = randomGen2.nextInt(99);
+            while (!set) {
+
+                if (randomInt2 != randomInt) {
+                    def4.setText(definitionMap.get(randomInt2));
+                    set = true;
+
+                } else {
+
+                    randomInt2 = randomGen2.nextInt(99);
+                }
+            }
+
+        }
+        else if(radiob==4) {
+            def4.setText(definitionMap.get(randomInt));
+            radiob=1;
+            while (!set) {
+
+                if (randomInt2 != randomInt) {
+                    def1.setText(definitionMap.get(randomInt2));
+                    set = true;
+
+                } else {
+
+                    randomInt2 = randomGen2.nextInt(99);
+                }
+            }
+
+            set = false;
+            randomInt2 = randomGen2.nextInt(99);
+            while (!set) {
+
+                if (randomInt2 != randomInt) {
+                    def2.setText(definitionMap.get(randomInt2));
+                    set = true;
+
+                } else {
+
+                    randomInt2 = randomGen2.nextInt(99);
+                }
+            }
+            set = false;
+            randomInt2 = randomGen2.nextInt(99);
+            while (!set) {
+
+                if (randomInt2 != randomInt) {
+                    def3.setText(definitionMap.get(randomInt2));
+                    set = true;
+
+                } else {
+
+                    randomInt2 = randomGen2.nextInt(99);
+                }
             }
         }
 

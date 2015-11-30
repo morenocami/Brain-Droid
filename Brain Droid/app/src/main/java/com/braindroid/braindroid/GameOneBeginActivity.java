@@ -14,8 +14,6 @@ import android.view.View.OnClickListener;
 
 public class GameOneBeginActivity extends Activity implements OnClickListener {
 
-	Builder alert;
-
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

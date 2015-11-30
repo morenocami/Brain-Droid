@@ -1,13 +1,11 @@
 package com.braindroid.braindroid;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
 import java.util.List;
 
 public class GameOneGridAdapter extends BaseAdapter {
@@ -16,11 +14,6 @@ public class GameOneGridAdapter extends BaseAdapter {
 	List<String> list;
 	private LayoutInflater inflater;
 	private TextView tex;
-	private Resources res;
-
-	public GameOneGridAdapter() {
-		// TODO Auto-generated constructor stub
-	}
 
 	public GameOneGridAdapter(Context context, List<String> list) {
 		super();

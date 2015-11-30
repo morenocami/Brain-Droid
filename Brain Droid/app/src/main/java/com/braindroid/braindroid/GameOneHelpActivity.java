@@ -1,9 +1,9 @@
 package com.braindroid.braindroid;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 
-public class GameOneHelpActivity extends ActionBarActivity {
+public class GameOneHelpActivity extends AppCompatActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -11,6 +11,9 @@ public class GameOneHelpActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.gameonehelplayout);
 		getSupportActionBar().hide();
+
+
+
 	}
 
 }

@@ -66,12 +66,12 @@
                     android:id="@+id/username"
                     android:ems="10"
                     android:hint="Username"
-                    android:inputType="text"
                     android:layout_alignTop="@+id/textView9"
                     android:layout_toRightOf="@+id/textView9"
                     android:layout_toEndOf="@+id/textView9"
                     android:layout_weight="1"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:inputType="textNoSuggestions" />
 
                 <EditText
                     android:layout_width="wrap_content"

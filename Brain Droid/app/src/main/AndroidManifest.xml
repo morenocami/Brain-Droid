@@ -2,6 +2,7 @@
     package="com.braindroid.braindroid">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -77,6 +78,7 @@
         <activity
             android:name=".GameTwo"
             android:label="Vocab"
+            android:screenOrientation="sensorPortrait"
             android:windowSoftInputMode="stateHidden">
         </activity>
 

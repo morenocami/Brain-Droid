@@ -1,6 +1,10 @@
 package com.braindroid.braindroid;
 
+import android.widget.EditText;
+
+import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.SaveCallback;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -15,7 +19,8 @@ public class User{
     private static String id,
             firstName,
             lastName,
-            username;
+            username,
+            studentOf;
     private static int mathBest,
             mathRight,
             mathWrong;
@@ -33,6 +38,7 @@ public class User{
         firstName = po.getString("firstname");
         lastName = po.getString("lastname");
         username = po.getString("username");
+        studentOf = po.getString("studentOf");
         mathBest = po.getInt("mathBest");
         mathRight = po.getInt("mathRight");
         mathWrong = po.getInt("mathWrong");
@@ -46,11 +52,11 @@ public class User{
         df.setRoundingMode(RoundingMode.HALF_UP);
     }
 
-
     static void logout(){
         firstName = null;
         lastName = null;
         username = null;
+        studentOf = null;
         mathBest = 0;
         mathRight = 0;
         mathWrong = 0;
@@ -63,6 +69,28 @@ public class User{
         id = null;
         LogIn.user=null;
     }
+
+    static void save(final EditText username, final EditText password){
+        if(!username.getText().toString().isEmpty())
+            LogIn.user.put("username",username.getText().toString());
+        if(!password.getText().toString().isEmpty())
+            LogIn.user.put("password",password.getText().toString());
+        LogIn.user.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if (e == null) {
+                    username.setText("");
+                    password.setText("");
+                }
+            }
+        });
+    }
+
+    static String getFirstName() {return firstName;}
+
+    static String getFullName() {return firstName + " " + lastName;}
+
+    static String getProfessor() {return studentOf;}
 
     static boolean checkBest (int score, Game game){
         switch(game){
@@ -89,6 +117,15 @@ public class User{
                 LogIn.user.saveInBackground();
                 return false;
             case VOCAB:
+                LogIn.user.put("vocabRight", vocabRight);
+                LogIn.user.put("vocabWrong", vocabWrong);
+                if(score> vocabBest){
+                    vocabBest = score;
+                    LogIn.user.put("vocabBest", vocabBest);
+                    LogIn.user.saveInBackground();
+                    return true;
+                }
+                LogIn.user.saveInBackground();
                 return false;
             default:
                 return false;
@@ -153,10 +190,6 @@ public class User{
                 return "";
         }
     }
-
-    static String getFirstName() {return firstName;}
-
-    static String getFullName() {return firstName + " " + lastName;}
 
     static void incRight(Game game){
         switch(game){

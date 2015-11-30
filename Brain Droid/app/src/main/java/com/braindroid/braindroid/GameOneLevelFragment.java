@@ -164,7 +164,12 @@ public class GameOneLevelFragment extends Fragment implements AdapterView.OnItem
 		if (!isgridviewClickable()) {}
 		else {
 			if (anslist.get(position).equalsIgnoreCase("" + selecttext.getText().toString().charAt(selecttext.length() - 1))) {
+				final int temp = score +10;
 				User.incRight(User.Game.MEMORY);
+				if(User.checkBest(temp,User.Game.MEMORY) && !newBest){
+					Toast.makeText(context, "New personal best!", Toast.LENGTH_SHORT).show();
+					newBest=true;
+				}
 				right_dia_text.setText(GameOneGameConstants.generateRandomSuccessMessage(context));
 				rightanslayout.setVisibility(View.VISIBLE);
 				right_dia_img.setImageResource(GameOneGameConstants.generateRandomHappyDrawableResource());
@@ -172,19 +177,12 @@ public class GameOneLevelFragment extends Fragment implements AdapterView.OnItem
 				grid.setVisibility(View.GONE);
 				frame.setVisibility(View.GONE);
 				selecttext.setVisibility(View.GONE);
-
 			}
 			else {
 				User.incWrong(User.Game.MEMORY);
 				decrementlife();
 			}
-
-			if(User.checkBest(score,User.Game.MEMORY) && !newBest){
-				Toast.makeText(context, "New personal best!", Toast.LENGTH_SHORT).show();
-				newBest=true;
-			}
 		}
-
 	}
 
 	private void updatescore(int i) {

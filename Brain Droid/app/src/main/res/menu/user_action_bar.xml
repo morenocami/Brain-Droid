@@ -17,4 +17,9 @@
         android:title="Progress Reports"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/highscores"
+        android:title="High Scores"
+        app:showAsAction="never" />
+
 </menu>

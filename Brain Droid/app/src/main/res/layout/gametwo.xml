@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/r"
-    android:background="#c48080">
+    android:background="@drawable/vocablayout">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -17,9 +17,17 @@
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Score: 0"
+        android:id="@+id/textView16"
+        android:layout_gravity="center_horizontal"
+        android:textSize="50sp"
+        android:background="@drawable/score_vocab_view"
+        android:gravity="center" />
+
     <ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_height="fill_parent"
         android:layout_width="fill_parent"
         android:fillViewport="true">
@@ -28,7 +36,6 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/vocablayout"
             android:id="@+id/vocabback">
 
             <TextView
@@ -147,19 +154,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Hint goes here............."
+                        android:text="Press Hint, Lose Half Point!"
                         android:id="@+id/textView12" />
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:text="Medium Text"
-                    android:id="@+id/textView10"
-                    android:layout_gravity="center_horizontal"
-                    android:gravity="center"
-                    android:padding="10dp" />
             </LinearLayout>
 
         </LinearLayout>

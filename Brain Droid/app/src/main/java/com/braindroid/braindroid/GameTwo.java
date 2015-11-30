@@ -2,10 +2,7 @@ package com.braindroid.braindroid;
 
 import android.content.Intent;
 import android.content.res.AssetManager;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -13,14 +10,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -30,15 +23,15 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Random;
 
+
+
+
+
+
 /**
  * Created by Vanessa on 11/11/2015.
  */
 public class GameTwo extends AppCompatActivity {
-
-
-    //Need to create a hash map for vocabulary words.
-    //to randomly select a word
-    //and generate the definitions of the word
 
     private HashMap<Integer, String> vocabMap = new HashMap<Integer, String>();
     private HashMap<Integer, String> definitionMap = new HashMap<Integer, String>();
@@ -47,15 +40,12 @@ public class GameTwo extends AppCompatActivity {
     private RadioGroup definitionGroup;
     private RadioButton def1, def2, def3, def4, definition;
     private Button next, hint;
-    private int randomInt, selectedId, randomInt2;
+    private int currentWordPosition, selectedId, randomInt2, radiob=1;
     private Random randomGenerator = new Random();
     private Random randomGen2 = new Random();
-    private TextView question_number;
-    private int number_of_questions= 10, question_num=0, number_correct=0;
-    private double decimal_correctness;
-    android.support.v4.app.Fragment f;
-    FragmentManager fm = getSupportFragmentManager();
-    private LinearLayout Hintlay, questionLay;
+    private TextView score;
+    private int number_correct=0;
+    private double points=0;
 
     private boolean newBest;
 
@@ -65,20 +55,17 @@ public class GameTwo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gametwo);
 
-        Hintlay = (LinearLayout) findViewById(R.id.lay2);
-        questionLay = (LinearLayout) findViewById(R.id.rel);
-
         next =(Button) findViewById(R.id.button);
         hint =(Button) findViewById(R.id.button10);
         Hint = (TextView) findViewById(R.id.textView12);
         vocabWord = (TextView) findViewById(R.id.textView9);
+        score = (TextView) findViewById(R.id.textView16);
         definitionGroup = (RadioGroup) findViewById(R.id.rg);
         def1 = (RadioButton) findViewById(R.id.rb1);
         def2 = (RadioButton) findViewById(R.id.rb2);
         def3 = (RadioButton) findViewById(R.id.rb3);
         def4 = (RadioButton) findViewById(R.id.rb4);
         next = (Button) findViewById(R.id.button);
-        question_number= (TextView) findViewById(R.id.textView10);
 
         newBest=false;
 
@@ -97,7 +84,7 @@ public class GameTwo extends AppCompatActivity {
         }
     }
 
-    public void PopulateHash() {
+    private void PopulateHash() {
         try {
 
             String data;
@@ -157,99 +144,88 @@ public class GameTwo extends AppCompatActivity {
         }
     }
 
-    public void Hint(View v)
-    {
-        Hint.setText(sentenceMap.get(randomInt));
+    public void Hint(View v) {
+        hint.setVisibility(View.GONE);
+        Hint.setText(sentenceMap.get(currentWordPosition));
+        points=points-.5;
+        score.setText("Score: " + points);
     }
 
     public void NextClick(View v) {
-        Hint.setText("");
         if(definitionGroup.getCheckedRadioButtonId()==-1) {
-
-            Toast.makeText(getApplicationContext(), "You Must Answer",
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "You Must Answer", Toast.LENGTH_SHORT).show();
         }
         else {
-
-            if (question_num < 10) {
-                check_answers();
-                populate_question();
-
-                if (question_num == 10) {
-                    next.setText("Submit Answers");
-
-                    //should check parse history to see if this new value, below, is greatest
-                    //if greatest, then make a toast! and add to high score (variable declaration needed), else do not say anything
-                    decimal_correctness = number_correct / number_of_questions;
-                    //then save into parse
-                }
-
-                definitionGroup.clearCheck();
-
-
-            }
-            else {
-                Intent intent = new Intent(GameTwo.this, MainMenu.class);
-                startActivity(intent);
-            }
+            Hint.setText("");
+            Hint.setHint("Press Hint, Lose Half Point");
+            hint.setVisibility(View.VISIBLE);
+            check_answers();
+            populate_question();
+            definitionGroup.clearCheck();
         }
     }
 
-    public void check_answers() {
+    private void check_answers() {
         selectedId = definitionGroup.getCheckedRadioButtonId();
         definition = (RadioButton) findViewById(selectedId);
 
-        if(definitionMap.get(randomInt)==definition.getText()) {
+        if(definitionMap.get(currentWordPosition)==definition.getText()) {
             User.incRight(User.Game.VOCAB);
-            number_correct++;
-            Toast.makeText(getApplicationContext(), "Good Job",
-                    Toast.LENGTH_SHORT).show();
+            points+=1;
+            score.setText("Score: " + points);
+            Toast.makeText(getApplicationContext(), "Good Job", Toast.LENGTH_SHORT).show();
         }
         else {
             User.incWrong(User.Game.VOCAB);
-            Toast.makeText(getApplicationContext(),"            Correct Answer: \n" + vocabMap.get(randomInt)+ " - " + definitionMap.get(randomInt), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), vocabMap.get(currentWordPosition) + " - " + definitionMap.get(currentWordPosition), Toast.LENGTH_SHORT).show();
+            points-=1;
+            score.setText("Score: " + points);
         }
 
-        if(User.checkBest(number_correct, User.Game.VOCAB) && !newBest){
+        if(User.checkBest((int)points, User.Game.VOCAB) && !newBest){
             Toast.makeText(this, "New personal best!", Toast.LENGTH_SHORT).show();
             newBest=true;
         }
     }
 
-    public void populate_question() {
 
-        randomInt = randomGenerator.nextInt(99);
+    private void populate_question() {
 
+        currentWordPosition = randomGenerator.nextInt(99);
+        vocabWord.setText(vocabMap.get(currentWordPosition));
 
-        vocabWord.setText(vocabMap.get(randomInt));
-
-        def1.setText(definitionMap.get(randomInt));
-        def2.setText(definitionMap.get(randomGen2.nextInt(99)));
-        def3.setText(definitionMap.get(randomGen2.nextInt(99)));
-        def4.setText(definitionMap.get(randomGen2.nextInt(99)));
-
-        question_num++;
-        question_number.setText(question_num + " out of " + number_of_questions);
-    }
-
-
-
-    public void changeHintFrag(View v) {
-        FragmentTransaction t=fm.beginTransaction();
-
-        switch (v.getId()) {
-            case R.id.authors:
-                f = new Frag_AboutUs();
-                t.replace(R.id.lay, f);
-                t.commitAllowingStateLoss();
+        radiob = randomGenerator.nextInt(4);
+        switch(radiob){
+            case 0:
+                def1.setText(definitionMap.get(currentWordPosition));
                 break;
-            case R.id.app:
-                f = new Frag_AboutApp();
-                t.replace(R.id.lay, f);
-                t.commitAllowingStateLoss();
-            default:
+            case 1:
+                def2.setText(definitionMap.get(currentWordPosition));
+                break;
+            case 2:
+                def3.setText(definitionMap.get(currentWordPosition));
+                break;
+            case 3:
+                def4.setText(definitionMap.get(currentWordPosition));
+                break;
+        }
+
+        for(int x=0; x<4; x++) {
+            do {
+                randomInt2 = randomGenerator.nextInt(99);
+            }while(currentWordPosition == randomInt2);
+
+            if (radiob != 0 && x==0)
+                def1.setText(definitionMap.get(randomGenerator.nextInt(99)));
+            else if (radiob != 1 && x==1)
+                def2.setText(definitionMap.get(randomGenerator.nextInt(99)));
+            else if (radiob != 2 && x==2)
+                def3.setText(definitionMap.get(randomGenerator.nextInt(99)));
+            else if (radiob != 3 && x==3)
+                def4.setText(definitionMap.get(randomGenerator.nextInt(99)));
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -267,6 +243,11 @@ public class GameTwo extends AppCompatActivity {
                 return true;
 
             case R.id.action_forward:
+                final Intent scores = new Intent(this, HighScores.class);
+                scores.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                scores.putExtra("game", "vocab");
+                startActivity(scores);
                 return true;
 
             default:

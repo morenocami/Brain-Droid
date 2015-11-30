@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_back"
+        android:title="Back"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/mathScores"
+        android:title="Math"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/memoryScores"
+        android:title="Memory"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/vocabScores"
+        android:title="Vocab"
+        app:showAsAction="never"/>
+
+</menu>

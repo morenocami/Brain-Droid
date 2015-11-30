@@ -113,6 +113,12 @@
             android:theme="@style/Theme.AppCompat" >
         </activity>
 
+        <activity
+            android:name=".HighScores"
+            android:label="Highscores"
+            android:theme="@style/Theme.AppCompat" >
+        </activity>
+
     </application>
 
 </manifest>

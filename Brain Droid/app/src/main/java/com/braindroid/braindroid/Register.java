@@ -42,7 +42,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
         lastname = (EditText) findViewById(R.id.lastname);
 
         Spinner spinner = (Spinner)findViewById(R.id.spinner);
-        ArrayAdapter<String>adapter = new ArrayAdapter<String>(Register.this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(Register.this,
                 android.R.layout.simple_spinner_item,paths);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

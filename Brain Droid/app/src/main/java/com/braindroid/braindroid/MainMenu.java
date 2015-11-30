@@ -36,15 +36,9 @@ public class MainMenu extends AppCompatActivity{
         G1 = (Button) findViewById(R.id.G1);
         G2 = (Button) findViewById(R.id.G2);
         G3 = (Button) findViewById(R.id.G3);
-//====================================================================
-//Using external fonts
-//====================================================================
+
         logo = (TextView) findViewById(R.id.logo);
         logo.setText("Welcome " + User.getFirstName());
-// set font style for timer and mine count to LCD style
- //       Typeface lcdFont = Typeface.createFromAsset(getAssets(),"fonts/LCD2B.TTF");
- //       logo.setTypeface(lcdFont);
-//====================================================================
     }
 
     public void enterGame(View v){
@@ -93,6 +87,15 @@ public class MainMenu extends AppCompatActivity{
                 G2.setText("Memory");
                 break;
             default:
+        }
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if(hasFocus){
+            preview.setImageResource(R.drawable.logo);
+            logo.setVisibility(View.VISIBLE);
         }
     }
 
@@ -155,6 +158,14 @@ public class MainMenu extends AppCompatActivity{
                 progress.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
                         | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(progress);
+                return true;
+
+            case R.id.highscores:
+                final Intent scores = new Intent(this, HighScores.class);
+                scores.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                scores.putExtra("game", "math");
+                startActivity(scores);
                 return true;
 
             default:

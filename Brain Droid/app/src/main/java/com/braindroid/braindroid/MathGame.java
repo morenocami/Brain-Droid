@@ -202,8 +202,11 @@ public class MathGame extends AppCompatActivity{
                 return true;
 
             case R.id.action_forward:
-                //final Intent highscores = new Intent(this, HighScores.class);
-                //startActivity(highscores);
+                final Intent scores = new Intent(this, HighScores.class);
+                scores.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                scores.putExtra("game", "vocab");
+                startActivity(scores);
                 return true;
 
             default:

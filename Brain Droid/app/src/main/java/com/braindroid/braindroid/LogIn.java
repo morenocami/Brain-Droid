@@ -2,6 +2,7 @@ package com.braindroid.braindroid;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -17,6 +18,7 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,25 +29,52 @@ public class LogIn extends AppCompatActivity{
     private EditText username;
     private EditText password;
     static ParseObject user;
+    static List<ParseObject> listOfUsers;
+    private Handler handler;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.log_in);
 
+        handler = new Handler();
+
         try {
             Parse.enableLocalDatastore(this);
             Parse.initialize(this, "vuVEXjX02ghorFfG7HLFrZRuVBC43xhHFzvoPRUX", "QmPTK0yZCCUZhPQjW8CHaOtUw75MFZa8FDy4OyBO");
         }
         catch (Exception e){
-            // this catch should be changed to catch the exception Parse gives when already initialized!
+            // this catch should be changed to catch the exception Parse gives when already initialized
         }
+
+        new Thread(go).start();
+
         username = (EditText) findViewById(R.id.username);
         password = (EditText) findViewById(R.id.password);
 
         final Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
     }
+
+    private Runnable go = new Runnable() {
+        @Override
+        public void run() {
+            final ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("User");
+            try{
+                listOfUsers = query.find();
+                final Button button = (Button)findViewById(R.id.login);
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        button.setEnabled(true);
+                        button.setText("Login");
+                    }
+                });
+            }
+            catch(Exception e){}
+        }
+    };
+
 
     public void register(View v)
     {
@@ -72,38 +101,29 @@ public class LogIn extends AppCompatActivity{
             else {
                 button.setEnabled(false);
                 button.setText("LOADING...");
-                final ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("User");
 
-                query.findInBackground(new FindCallback<ParseObject>() {
-                    public void done(List<ParseObject> users, ParseException e) {
-                        if (e == null) {
-                            boolean matches = false;
-                            for (int x = 0; x < users.size(); x++) {
-                                if (users.get(x).getString("username").equalsIgnoreCase(username.getText().toString())) {
-                                    if (users.get(x).getString("password").equals(password.getText().toString())) {
-                                        matches = true;
-                                        user = users.get(x);
-                                        User.userFound(user);
-                                        break;
-                                    }
-                                }
-                            }
-                            if (matches) {
-                                Intent enter = new Intent(LogIn.this, MainMenu.class);
-                                startActivity(enter);
-                            }
-                            else {
-                                Toast.makeText(getApplicationContext(), "Username/Password combo incorrect.", Toast.LENGTH_SHORT).show();
-                            }
+                boolean matches = false;
+                for (int x = 0; x < listOfUsers.size(); x++) {
+                    if (listOfUsers.get(x).getString("username").equalsIgnoreCase(username.getText().toString())) {
+                        if (listOfUsers.get(x).getString("password").equals(password.getText().toString())) {
+                            matches = true;
+                            user = listOfUsers.get(x);
+                            User.userFound(user);
+                            break;
                         }
-                        else {
-                            Toast.makeText(getApplicationContext(), "There was an error. Please try again.", Toast.LENGTH_SHORT).show();
-                        }
-                        button.setEnabled(true);
-                        button.setText("Login");
-                        password.setText("");
                     }
-                });
+                }
+                if (matches) {
+                    Intent enter = new Intent(LogIn.this, MainMenu.class);
+                    startActivity(enter);
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "Username/Password combo incorrect.", Toast.LENGTH_SHORT).show();
+                }
+
+                button.setEnabled(true);
+                button.setText("Login");
+                password.setText("");
             }
         }
     }
